@@ -59,10 +59,12 @@ class ViewController: UIViewController {
             do{
                 guard let data = response.data else { return }
                 let decode = JSONDecoder()
-                let video = try decode.decode(Video.self, from: data)
-                self.VideoItems = video.items
+                let channel = try decode.decode(Channel.self, from: data)
                 
-                
+//                self.VideoItems = video.items
+                self.VideoItems.forEach{ (item) in
+                    item.channel = channel
+                }
                 
                 self.videoListCollectionView.reloadData()
             } catch {

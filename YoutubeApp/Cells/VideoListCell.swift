@@ -17,6 +17,11 @@ class VideoListCell: UICollectionViewCell {
                 Nuke.loadImage(with: url, into: thumbnailImageView)
             }
             //サムネイルの読み込みをして反映>
+            //  チャンネルイメージの読み紙をして反映<
+            if let channelUrl = URL(string: videoItem?.channel?.items[0].snippet.thumbnails.medium.url ?? "") {
+                Nuke.loadImage(with: channelUrl, into: channelImageView)
+            }
+            //  チャンネルイメージの読み紙をして反映>
             titleLabel.text = videoItem?.snippet.channelTitle
             descriptionLabel.text = videoItem?.snippet.description
         }
