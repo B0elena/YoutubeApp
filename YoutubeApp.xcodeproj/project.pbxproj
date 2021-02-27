@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		F3EDC94625E9B6520041FEC8 /* YoutubeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC94525E9B6520041FEC8 /* YoutubeAppUITests.swift */; };
 		F3EDC95825E9EA650041FEC8 /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC95725E9EA650041FEC8 /* VideoListCell.swift */; };
 		F3EDC96925E9EC000041FEC8 /* VideoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */; };
+		F3EDC97925E9FC1A0041FEC8 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC97825E9FC1A0041FEC8 /* Video.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		F3EDC94725E9B6520041FEC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3EDC95725E9EA650041FEC8 /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 		F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoListCell.xib; sourceTree = "<group>"; };
+		F3EDC97825E9FC1A0041FEC8 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +117,6 @@
 				7E7DCBD2EE7E01334A7815D9 /* Pods-YoutubeAppTests.debug.xcconfig */,
 				7906FDD7FB6977F4281DCC98 /* Pods-YoutubeAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -144,6 +145,7 @@
 		F3EDC92225E9B6510041FEC8 /* YoutubeApp */ = {
 			isa = PBXGroup;
 			children = (
+				F3EDC97725E9FBE00041FEC8 /* Models */,
 				F3EDC95F25E9EB770041FEC8 /* Xibs */,
 				F3EDC95625E9EA200041FEC8 /* Cells */,
 				F3EDC92325E9B6510041FEC8 /* AppDelegate.swift */,
@@ -189,6 +191,14 @@
 				F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */,
 			);
 			path = Xibs;
+			sourceTree = "<group>";
+		};
+		F3EDC97725E9FBE00041FEC8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F3EDC97825E9FC1A0041FEC8 /* Video.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +444,7 @@
 				F3EDC95825E9EA650041FEC8 /* VideoListCell.swift in Sources */,
 				F3EDC92425E9B6510041FEC8 /* AppDelegate.swift in Sources */,
 				F3EDC92625E9B6510041FEC8 /* SceneDelegate.swift in Sources */,
+				F3EDC97925E9FC1A0041FEC8 /* Video.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
