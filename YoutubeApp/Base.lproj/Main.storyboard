@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xBu-68-SDH">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Koh-zQ-x5F">
                                     <size key="itemSize" width="128" height="128"/>
@@ -37,26 +37,89 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uv-Rg-v7j">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="動画再生ボタン" translatesAutoresizingMaskIntoConstraints="NO" id="6z8-Pi-IcJ">
+                                        <rect key="frame" x="10" y="5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="J4w-Yz-0M2"/>
+                                            <constraint firstAttribute="height" constant="50" id="Svn-ul-Vf9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YouTube" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jju-Ie-gcf">
+                                        <rect key="frame" x="63" y="18" width="81" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_0630" translatesAutoresizingMaskIntoConstraints="NO" id="stv-Aq-8eQ">
+                                        <rect key="frame" x="364" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="stv-Aq-8eQ" secondAttribute="height" multiplier="1:1" id="adz-31-Glg"/>
+                                            <constraint firstAttribute="width" constant="40" id="uMA-0C-WaQ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wd8-T5-Jxl">
+                                        <rect key="frame" x="336" y="17.5" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="cKR-fU-jf2"/>
+                                            <constraint firstAttribute="width" secondItem="Wd8-T5-Jxl" secondAttribute="height" multiplier="1:1" id="hB0-7s-2Gc"/>
+                                        </constraints>
+                                        <state key="normal" image="検索用の虫眼鏡アイコン素材 その3"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvl-Co-JVt">
+                                        <rect key="frame" x="308" y="17.5" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="aX0-U6-RCc"/>
+                                            <constraint firstAttribute="width" secondItem="wvl-Co-JVt" secondAttribute="height" multiplier="1:1" id="omT-AC-Eow"/>
+                                        </constraints>
+                                        <state key="normal" image="映画の映写機のアイコン素材2"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="stv-Aq-8eQ" firstAttribute="centerY" secondItem="7uv-Rg-v7j" secondAttribute="centerY" id="2bb-B1-t7s"/>
+                                    <constraint firstItem="wvl-Co-JVt" firstAttribute="centerY" secondItem="7uv-Rg-v7j" secondAttribute="centerY" id="5hz-ov-ZWb"/>
+                                    <constraint firstItem="jju-Ie-gcf" firstAttribute="centerY" secondItem="7uv-Rg-v7j" secondAttribute="centerY" id="7Xc-Vc-Ysl"/>
+                                    <constraint firstItem="6z8-Pi-IcJ" firstAttribute="leading" secondItem="7uv-Rg-v7j" secondAttribute="leading" constant="10" id="HE0-yf-bjY"/>
+                                    <constraint firstItem="stv-Aq-8eQ" firstAttribute="leading" secondItem="Wd8-T5-Jxl" secondAttribute="trailing" constant="3" id="NSz-zN-9c4"/>
+                                    <constraint firstItem="Wd8-T5-Jxl" firstAttribute="leading" secondItem="wvl-Co-JVt" secondAttribute="trailing" constant="3" id="deP-81-ToT"/>
+                                    <constraint firstAttribute="trailing" secondItem="stv-Aq-8eQ" secondAttribute="trailing" constant="10" id="hnT-KL-Jcf"/>
+                                    <constraint firstItem="6z8-Pi-IcJ" firstAttribute="centerY" secondItem="7uv-Rg-v7j" secondAttribute="centerY" id="nRa-Gw-yQ4"/>
+                                    <constraint firstItem="Wd8-T5-Jxl" firstAttribute="centerY" secondItem="7uv-Rg-v7j" secondAttribute="centerY" id="rVi-zM-PHb"/>
+                                    <constraint firstAttribute="height" constant="60" id="ram-Ug-1O5"/>
+                                    <constraint firstItem="jju-Ie-gcf" firstAttribute="leading" secondItem="6z8-Pi-IcJ" secondAttribute="trailing" constant="3" id="ufz-Gh-P6d"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="7uv-Rg-v7j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6yo-0w-RIo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xBu-68-SDH" secondAttribute="trailing" id="7fh-5Z-FY0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xBu-68-SDH" secondAttribute="bottom" id="CFE-TN-xO9"/>
-                            <constraint firstItem="xBu-68-SDH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LGK-j5-2lz"/>
+                            <constraint firstItem="xBu-68-SDH" firstAttribute="top" secondItem="7uv-Rg-v7j" secondAttribute="bottom" id="LGK-j5-2lz"/>
                             <constraint firstItem="xBu-68-SDH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UOJ-oi-2DV"/>
+                            <constraint firstItem="7uv-Rg-v7j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Z79-Pi-Dba"/>
+                            <constraint firstItem="7uv-Rg-v7j" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="swb-C9-u19"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="profileImageView" destination="stv-Aq-8eQ" id="q96-Sy-fxG"/>
                         <outlet property="videoListCollectionView" destination="xBu-68-SDH" id="9cv-Ti-wcg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="94"/>
+            <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_0630" width="1448" height="2048"/>
+        <image name="動画再生ボタン" width="128" height="128"/>
+        <image name="映画の映写機のアイコン素材2" width="128" height="128"/>
+        <image name="検索用の虫眼鏡アイコン素材 その3" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

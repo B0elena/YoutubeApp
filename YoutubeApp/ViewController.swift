@@ -11,6 +11,7 @@ import Alamofire
 class ViewController: UIViewController {
 
     @IBOutlet weak var videoListCollectionView: UICollectionView!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     private let cellId = "cellId"
     private var VideoItems = [Item]()
@@ -22,6 +23,8 @@ class ViewController: UIViewController {
         videoListCollectionView.dataSource = self
                 
         videoListCollectionView.register(UINib(nibName: "VideoListCell", bundle: nil), forCellWithReuseIdentifier: cellId)
+        
+        profileImageView.layer.cornerRadius = 20
         
         fetchYoutubeSerachInfo()
     }
