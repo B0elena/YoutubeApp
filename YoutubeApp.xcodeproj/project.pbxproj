@@ -16,6 +16,7 @@
 		F3EDC93B25E9B6520041FEC8 /* YoutubeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC93A25E9B6520041FEC8 /* YoutubeAppTests.swift */; };
 		F3EDC94625E9B6520041FEC8 /* YoutubeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC94525E9B6520041FEC8 /* YoutubeAppUITests.swift */; };
 		F3EDC95825E9EA650041FEC8 /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC95725E9EA650041FEC8 /* VideoListCell.swift */; };
+		F3EDC96925E9EC000041FEC8 /* VideoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F3EDC94525E9B6520041FEC8 /* YoutubeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeAppUITests.swift; sourceTree = "<group>"; };
 		F3EDC94725E9B6520041FEC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3EDC95725E9EA650041FEC8 /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
+		F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		F3EDC92225E9B6510041FEC8 /* YoutubeApp */ = {
 			isa = PBXGroup;
 			children = (
+				F3EDC95F25E9EB770041FEC8 /* Xibs */,
 				F3EDC95625E9EA200041FEC8 /* Cells */,
 				F3EDC92325E9B6510041FEC8 /* AppDelegate.swift */,
 				F3EDC92525E9B6510041FEC8 /* SceneDelegate.swift */,
@@ -137,6 +140,14 @@
 				F3EDC95725E9EA650041FEC8 /* VideoListCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		F3EDC95F25E9EB770041FEC8 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3EDC93025E9B6520041FEC8 /* LaunchScreen.storyboard in Resources */,
+				F3EDC96925E9EC000041FEC8 /* VideoListCell.xib in Resources */,
 				F3EDC92D25E9B6520041FEC8 /* Assets.xcassets in Resources */,
 				F3EDC92B25E9B6510041FEC8 /* Main.storyboard in Resources */,
 			);

@@ -9,6 +9,10 @@ import UIKit
 
 class VideoListCell: UICollectionViewCell {
     
-    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        backgroundColor = .purple
+    }
     
 }
