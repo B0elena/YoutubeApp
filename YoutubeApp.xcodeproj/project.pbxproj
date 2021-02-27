@@ -21,6 +21,7 @@
 		F3EDC95825E9EA650041FEC8 /* VideoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC95725E9EA650041FEC8 /* VideoListCell.swift */; };
 		F3EDC96925E9EC000041FEC8 /* VideoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */; };
 		F3EDC97925E9FC1A0041FEC8 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC97825E9FC1A0041FEC8 /* Video.swift */; };
+		F3EDC98925EA21EA0041FEC8 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC98825EA21EA0041FEC8 /* Channel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		F3EDC95725E9EA650041FEC8 /* VideoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListCell.swift; sourceTree = "<group>"; };
 		F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoListCell.xib; sourceTree = "<group>"; };
 		F3EDC97825E9FC1A0041FEC8 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		F3EDC98825EA21EA0041FEC8 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				F3EDC97825E9FC1A0041FEC8 /* Video.swift */,
+				F3EDC98825EA21EA0041FEC8 /* Channel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3EDC92825E9B6510041FEC8 /* ViewController.swift in Sources */,
+				F3EDC98925EA21EA0041FEC8 /* Channel.swift in Sources */,
 				F3EDC95825E9EA650041FEC8 /* VideoListCell.swift in Sources */,
 				F3EDC92425E9B6510041FEC8 /* AppDelegate.swift in Sources */,
 				F3EDC92625E9B6510041FEC8 /* SceneDelegate.swift in Sources */,
