@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     private func fetchYoutubeSerachInfo() {
         let params = ["q": "nba"]
         // Utilityから処理を呼び出す<
-        APIRequest.shared.request(path: .search, params: params, type: Video.self) { (video) in
+        API.shared.request(path: .search, params: params, type: Video.self) { (video) in
             self.VideoItems = video.items
             let id = self.VideoItems[0].snippet.channelId
             self.fetchYoutubeChannelInfo(id: id)
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
             "id": id
         ]
         // Utilityから処理を呼び出す<
-        APIRequest.shared.request(path: .channels, params: params, type: Channel.self) { (channel) in
+        API.shared.request(path: .channels, params: params, type: Channel.self) { (channel) in
             self.VideoItems.forEach{ (item) in
                 item.channel = channel
             }
