@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var videoListCollectionView: UICollectionView!
     
     private let cellId = "cellId"
+    private var VideoItems = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,10 @@ class ViewController: UIViewController {
                 
         videoListCollectionView.register(UINib(nibName: "VideoListCell", bundle: nil), forCellWithReuseIdentifier: cellId)
         
+        fetchYoutubeSerachInfo()
+    }
+    
+    private func fetchYoutubeSerachInfo() {
         let urlString = "https://www.googleapis.com/youtube/v3/search?q=nba&key=AIzaSyAzCAmRGPX4QDsZJEZxhfTTBJ-tQwbaLDM&part=snippet"
         
         let request = AF.request(urlString)
@@ -31,13 +36,12 @@ class ViewController: UIViewController {
                 guard let data = response.data else { return }
                 let decode = JSONDecoder()
                 let video = try decode.decode(Video.self, from: data)
-                print("video:", video.items.count)
+                self.VideoItems = video.items
+                
+                self.videoListCollectionView.reloadData()
             } catch {
                 print("変換に失敗しました。:", error)
             }
-
-//            print("response: ", response)
-            
         }
         // JSON形式で取得したデータを変換>
     }

@@ -64,6 +64,9 @@
             <size key="customSize" width="338" height="378"/>
             <connections>
                 <outlet property="channelImageView" destination="py3-Uc-obf" id="Ejt-Ci-PVY"/>
+                <outlet property="descriptionLabel" destination="WOR-N3-tsd" id="ana-HR-cXq"/>
+                <outlet property="thumbnailImageView" destination="qqx-fs-dwA" id="CBz-GM-VEe"/>
+                <outlet property="titleLabel" destination="Lof-io-YyA" id="UcM-Tz-p8h"/>
             </connections>
             <point key="canvasLocation" x="-586.95652173913049" y="5.3571428571428568"/>
         </collectionViewCell>
