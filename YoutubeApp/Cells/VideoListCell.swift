@@ -8,12 +8,11 @@
 import UIKit
 
 class VideoListCell: UICollectionViewCell {
-    
+   // ジブを紐付けるための設定<
     @IBOutlet weak var channelImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         channelImageView.layer.cornerRadius = 20
-        
-    }    
+    }
+    // ジブを紐付けるための設定>
 }

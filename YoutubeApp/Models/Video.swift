@@ -7,6 +7,7 @@
 
 import Foundation
 
+// 情報の定義<
 class Video: Decodable {
     let kind: String
     let items: [Item]
@@ -21,7 +22,7 @@ class Snippet: Decodable {
     let channelId: String
     let channelTitle: String
     let description: String
-    let thumbnails: [Thumbnail]
+    let thumbnails: Thumbnail
 }
 
 class Thumbnail: Decodable {
@@ -31,6 +32,7 @@ class Thumbnail: Decodable {
 
 class ThumbnailInfo: Decodable {
     let url: String
-    let width: Int
-    let height: Int
+    let width: Int?
+    let height: Int?
 }
+// 情報の定義>
