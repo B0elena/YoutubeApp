@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07EF2109E78F1DAE8BBAA52C /* Pods_YoutubeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C659FDB420B56D2179EBF3 /* Pods_YoutubeApp.framework */; };
+		197527B2F3DC785B16699ECC /* Pods_YoutubeApp_YoutubeAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A7BFD1694D58884E47798B /* Pods_YoutubeApp_YoutubeAppUITests.framework */; };
+		65E82FCD35E3E0A345CB334C /* Pods_YoutubeAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFE96B207F9D6C3322CEF8FA /* Pods_YoutubeAppTests.framework */; };
 		F3EDC92425E9B6510041FEC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC92325E9B6510041FEC8 /* AppDelegate.swift */; };
 		F3EDC92625E9B6510041FEC8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC92525E9B6510041FEC8 /* SceneDelegate.swift */; };
 		F3EDC92825E9B6510041FEC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC92725E9B6510041FEC8 /* ViewController.swift */; };
@@ -37,6 +40,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14A7BFD1694D58884E47798B /* Pods_YoutubeApp_YoutubeAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoutubeApp_YoutubeAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7906FDD7FB6977F4281DCC98 /* Pods-YoutubeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeAppTests.release.xcconfig"; path = "Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		7E7DCBD2EE7E01334A7815D9 /* Pods-YoutubeAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeAppTests.debug.xcconfig"; path = "Target Support Files/Pods-YoutubeAppTests/Pods-YoutubeAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B3A7791CA0780859FDD1B768 /* Pods-YoutubeApp-YoutubeAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeApp-YoutubeAppUITests.release.xcconfig"; path = "Target Support Files/Pods-YoutubeApp-YoutubeAppUITests/Pods-YoutubeApp-YoutubeAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B9F006B50FAEC6BBED32C442 /* Pods-YoutubeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeApp.release.xcconfig"; path = "Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp.release.xcconfig"; sourceTree = "<group>"; };
+		BC355ECBE952A99ED581C60D /* Pods-YoutubeApp-YoutubeAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeApp-YoutubeAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-YoutubeApp-YoutubeAppUITests/Pods-YoutubeApp-YoutubeAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BFE96B207F9D6C3322CEF8FA /* Pods_YoutubeAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoutubeAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C398406170333696C74D943E /* Pods-YoutubeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeApp.debug.xcconfig"; path = "Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D4C659FDB420B56D2179EBF3 /* Pods_YoutubeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoutubeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EDC92025E9B6510041FEC8 /* YoutubeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoutubeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3EDC92325E9B6510041FEC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3EDC92525E9B6510041FEC8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07EF2109E78F1DAE8BBAA52C /* Pods_YoutubeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65E82FCD35E3E0A345CB334C /* Pods_YoutubeAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +88,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197527B2F3DC785B16699ECC /* Pods_YoutubeApp_YoutubeAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B9B804F68C89056A7662CA49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4C659FDB420B56D2179EBF3 /* Pods_YoutubeApp.framework */,
+				14A7BFD1694D58884E47798B /* Pods_YoutubeApp_YoutubeAppUITests.framework */,
+				BFE96B207F9D6C3322CEF8FA /* Pods_YoutubeAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA5115FDAAE920013E8B8A37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C398406170333696C74D943E /* Pods-YoutubeApp.debug.xcconfig */,
+				B9F006B50FAEC6BBED32C442 /* Pods-YoutubeApp.release.xcconfig */,
+				BC355ECBE952A99ED581C60D /* Pods-YoutubeApp-YoutubeAppUITests.debug.xcconfig */,
+				B3A7791CA0780859FDD1B768 /* Pods-YoutubeApp-YoutubeAppUITests.release.xcconfig */,
+				7E7DCBD2EE7E01334A7815D9 /* Pods-YoutubeAppTests.debug.xcconfig */,
+				7906FDD7FB6977F4281DCC98 /* Pods-YoutubeAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F3EDC91725E9B6510041FEC8 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +126,8 @@
 				F3EDC93925E9B6520041FEC8 /* YoutubeAppTests */,
 				F3EDC94425E9B6520041FEC8 /* YoutubeAppUITests */,
 				F3EDC92125E9B6510041FEC8 /* Products */,
+				BA5115FDAAE920013E8B8A37 /* Pods */,
+				B9B804F68C89056A7662CA49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -157,9 +198,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3EDC94A25E9B6520041FEC8 /* Build configuration list for PBXNativeTarget "YoutubeApp" */;
 			buildPhases = (
+				D93D4717E00004CCD21A8759 /* [CP] Check Pods Manifest.lock */,
 				F3EDC91C25E9B6510041FEC8 /* Sources */,
 				F3EDC91D25E9B6510041FEC8 /* Frameworks */,
 				F3EDC91E25E9B6510041FEC8 /* Resources */,
+				2042A17CE12072C90A7124EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -174,6 +217,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3EDC94D25E9B6520041FEC8 /* Build configuration list for PBXNativeTarget "YoutubeAppTests" */;
 			buildPhases = (
+				5FAC2769A9FBA963CF95D9B7 /* [CP] Check Pods Manifest.lock */,
 				F3EDC93225E9B6520041FEC8 /* Sources */,
 				F3EDC93325E9B6520041FEC8 /* Frameworks */,
 				F3EDC93425E9B6520041FEC8 /* Resources */,
@@ -192,9 +236,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3EDC95025E9B6520041FEC8 /* Build configuration list for PBXNativeTarget "YoutubeAppUITests" */;
 			buildPhases = (
+				A110F9BE6CA7E72318193F6C /* [CP] Check Pods Manifest.lock */,
 				F3EDC93D25E9B6520041FEC8 /* Sources */,
 				F3EDC93E25E9B6520041FEC8 /* Frameworks */,
 				F3EDC93F25E9B6520041FEC8 /* Resources */,
+				9BCB538CFE4F3ECB50E797B9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,6 +321,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2042A17CE12072C90A7124EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YoutubeApp/Pods-YoutubeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FAC2769A9FBA963CF95D9B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YoutubeAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BCB538CFE4F3ECB50E797B9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YoutubeApp-YoutubeAppUITests/Pods-YoutubeApp-YoutubeAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YoutubeApp-YoutubeAppUITests/Pods-YoutubeApp-YoutubeAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YoutubeApp-YoutubeAppUITests/Pods-YoutubeApp-YoutubeAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A110F9BE6CA7E72318193F6C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YoutubeApp-YoutubeAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D93D4717E00004CCD21A8759 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YoutubeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F3EDC91C25E9B6510041FEC8 /* Sources */ = {
@@ -457,6 +606,7 @@
 		};
 		F3EDC94B25E9B6520041FEC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C398406170333696C74D943E /* Pods-YoutubeApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -476,6 +626,7 @@
 		};
 		F3EDC94C25E9B6520041FEC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9F006B50FAEC6BBED32C442 /* Pods-YoutubeApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -495,6 +646,7 @@
 		};
 		F3EDC94E25E9B6520041FEC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E7DCBD2EE7E01334A7815D9 /* Pods-YoutubeAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -517,6 +669,7 @@
 		};
 		F3EDC94F25E9B6520041FEC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7906FDD7FB6977F4281DCC98 /* Pods-YoutubeAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -539,6 +692,7 @@
 		};
 		F3EDC95125E9B6520041FEC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC355ECBE952A99ED581C60D /* Pods-YoutubeApp-YoutubeAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -559,6 +713,7 @@
 		};
 		F3EDC95225E9B6520041FEC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3A7791CA0780859FDD1B768 /* Pods-YoutubeApp-YoutubeAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
