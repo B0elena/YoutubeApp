@@ -18,9 +18,7 @@ class ViewController: UIViewController {
         
         videoListCollectionView.delegate = self
         videoListCollectionView.dataSource = self
-        
-//        videoListCollectionView.register(VideoListCell.self, forCellWithReuseIdentifier: cellId)
-        
+                
         videoListCollectionView.register(UINib(nibName: "VideoListCell", bundle: nil), forCellWithReuseIdentifier: cellId)
     }
 }
@@ -39,9 +37,6 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! VideoListCell
         
-//        cell.backgroundColor = .green
         return cell
     }
-    
-    
 }

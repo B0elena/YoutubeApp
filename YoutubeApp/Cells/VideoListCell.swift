@@ -9,10 +9,11 @@ import UIKit
 
 class VideoListCell: UICollectionViewCell {
     
+    @IBOutlet weak var channelImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backgroundColor = .purple
-    }
-    
+        channelImageView.layer.cornerRadius = 20
+        
+    }    
 }
