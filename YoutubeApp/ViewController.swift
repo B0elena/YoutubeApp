@@ -55,11 +55,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     // セルの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return VideoItems.count
     }
     // セルの設定
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! VideoListCell
+        cell.videoItem = VideoItems[indexPath.row]
         
         return cell
     }

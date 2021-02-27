@@ -11,7 +11,14 @@ class VideoListCell: UICollectionViewCell {
     
     var videoItem: Item? {
         didSet {
-            
+            //サムネイルの読み込みをして反映<
+            if let url = URL(string: videoItem?.snippet.thumbnails.medium.url ?? "") {
+                let data = try! Data(contentsOf: url)
+                thumbnailImageView.image = UIImage(data: data)
+            }
+            //サムネイルの読み込みをして反映>
+            titleLabel.text = videoItem?.snippet.channelTitle
+            descriptionLabel.text = videoItem?.snippet.description
         }
     }
     
