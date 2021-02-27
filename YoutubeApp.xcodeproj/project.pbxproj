@@ -22,6 +22,7 @@
 		F3EDC96925E9EC000041FEC8 /* VideoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */; };
 		F3EDC97925E9FC1A0041FEC8 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC97825E9FC1A0041FEC8 /* Video.swift */; };
 		F3EDC98925EA21EA0041FEC8 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC98825EA21EA0041FEC8 /* Channel.swift */; };
+		F3EDC98F25EA39D70041FEC8 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3EDC98E25EA39D70041FEC8 /* APIRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoListCell.xib; sourceTree = "<group>"; };
 		F3EDC97825E9FC1A0041FEC8 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		F3EDC98825EA21EA0041FEC8 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		F3EDC98E25EA39D70041FEC8 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		F3EDC92225E9B6510041FEC8 /* YoutubeApp */ = {
 			isa = PBXGroup;
 			children = (
+				F3EDC98D25EA38F70041FEC8 /* Utility */,
 				F3EDC97725E9FBE00041FEC8 /* Models */,
 				F3EDC95F25E9EB770041FEC8 /* Xibs */,
 				F3EDC95625E9EA200041FEC8 /* Cells */,
@@ -202,6 +205,14 @@
 				F3EDC98825EA21EA0041FEC8 /* Channel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F3EDC98D25EA38F70041FEC8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F3EDC98E25EA39D70041FEC8 /* APIRequest.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3EDC92825E9B6510041FEC8 /* ViewController.swift in Sources */,
+				F3EDC98F25EA39D70041FEC8 /* APIRequest.swift in Sources */,
 				F3EDC98925EA21EA0041FEC8 /* Channel.swift in Sources */,
 				F3EDC95825E9EA650041FEC8 /* VideoListCell.swift in Sources */,
 				F3EDC92425E9B6510041FEC8 /* AppDelegate.swift in Sources */,
