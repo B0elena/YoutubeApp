@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // TabBarItemの色を変える<
+        UITabBarItem.appearance().setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 9, weight: .bold), .foregroundColor: UIColor.init(red: 230/255, green: 50/255, blue: 50/255, alpha: 1)], for: .normal)
+        // TabBarItemの色を変える>
         return true
     }
 
