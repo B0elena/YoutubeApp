@@ -26,54 +26,59 @@ class ViewController: UIViewController {
         fetchYoutubeSerachInfo()
     }
     
+    // 検索リストからのレスポンス<
     private func fetchYoutubeSerachInfo() {
-        // 検索リストからのURL<
-        let urlString = "https://www.googleapis.com/youtube/v3/search?q=nba&key=AIzaSyAzCAmRGPX4QDsZJEZxhfTTBJ-tQwbaLDM&part=snippet"
-        // 検索リストからのURL>
-        let request = AF.request(urlString)
-        // JSON形式で取得したデータを変換<(ブレイクポイントで取得できているかを確認)
-        request.responseJSON{ (response) in
-            do{
-                guard let data = response.data else { return }
-                let decode = JSONDecoder()
-                let video = try decode.decode(Video.self, from: data)
-                self.VideoItems = video.items
-                
-                let id = self.VideoItems[0].snippet.channelId
-                self.fetchYoutubeChannelInfo(id: id)
-                
-            } catch {
-                print("変換に失敗しました。:", error)
-            }
+        let path = "search"
+        let params = ["q": "nba"]
+        apiRequest(path: path, params: params, type: Video.self) { (video) in
+            self.VideoItems = video.items
+            let id = self.VideoItems[0].snippet.channelId
+            self.fetchYoutubeChannelInfo(id: id)
         }
-        // JSON形式で取得したデータを変換>
     }
+    // 検索リストからのレスポンス>
     
+    // チャンネルリストからのレスポンス<
     private func fetchYoutubeChannelInfo(id: String) {
-        // チャンネルリストからのURL<
-        let urlString = "https://www.googleapis.com/youtube/v3/channels?key=AIzaSyAzCAmRGPX4QDsZJEZxhfTTBJ-tQwbaLDM&part=snippet&id=\(id)"
-        // チャンネルリストからのURL>
-        let request = AF.request(urlString)
-        // JSON形式で取得したデータを変換<(ブレイクポイントで取得できているかを確認)
+        let path = "channels"
+        let params = [
+            "id": id
+        ]
+        apiRequest(path: path, params: params, type: Channel.self) { (channel) in
+            self.VideoItems.forEach{ (item) in
+                item.channel = channel
+            }
+            self.videoListCollectionView.reloadData()
+        }
+    }
+    // チャンネルリストからのレスポンス>
+    
+    // 検索かチャンネルかを分けてセットするGenericsのメソッドの書き方<
+    private func apiRequest<T: Decodable>(path: String, params: [String: Any], type: T.Type, completion: @escaping (T) -> Void) {
+        // ベースのURL<
+        let baseUrl = "https://www.googleapis.com/youtube/v3/"
+        let path = path
+        let url = baseUrl + path + "?"
+        var params = params
+        params["key"] = "AIzaSyAzCAmRGPX4QDsZJEZxhfTTBJ-tQwbaLDM"
+        params["part"] = "snippet"
+        // ベースのURL>
+        let request = AF.request(url, method: .get, parameters: params)
+        // JSON形式で取得したデータを変換<
         request.responseJSON{ (response) in
             do{
                 guard let data = response.data else { return }
                 let decode = JSONDecoder()
-                let channel = try decode.decode(Channel.self, from: data)
-                
-//                self.VideoItems = video.items
-                self.VideoItems.forEach{ (item) in
-                    item.channel = channel
-                }
-                
-                self.videoListCollectionView.reloadData()
+                let value = try decode.decode(T.self, from: data)
+
+                completion(value)
             } catch {
                 print("変換に失敗しました。:", error)
             }
         }
         // JSON形式で取得したデータを変換>
     }
-    
+    // 検索かチャンネルかを分けてセットするGenericsのメソッドの書き方>
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
