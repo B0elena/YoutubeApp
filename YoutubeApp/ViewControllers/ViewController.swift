@@ -12,6 +12,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var videoListCollectionView: UICollectionView!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     
     private let cellId = "cellId"
     private var VideoItems = [Item]()
