@@ -60,6 +60,13 @@ class ViewController: UIViewController {
         // Utilityから処理を呼び出す>
     }
     // チャンネルリストからのレスポンス>
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if headerTopConstraint.constant >= -headerHeightConstraint.constant {
+            // スクロールするとヘッダーのトップの値がマイナスさせていく
+            headerTopConstraint.constant -= 1
+        }
+    }
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
