@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     
+    private var prevContentOffset: CGPoint = .init(x: 0, y: 0)
+    
     private let cellId = "cellId"
     private var VideoItems = [Item]()
     
@@ -62,9 +64,21 @@ class ViewController: UIViewController {
     // チャンネルリストからのレスポンス>
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if headerTopConstraint.constant >= -headerHeightConstraint.constant {
-            // スクロールするとヘッダーのトップの値がマイナスさせていく
+        // 0.5秒後の値を比較してどの方向にスクロールしているのかを判断する<
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.prevContentOffset = scrollView.contentOffset
+        }
+        // 0.5秒後の値を比較してどの方向にスクロールしているのかを判断する>
+        // 上にスクロールする時
+        if self.prevContentOffset.y < scrollView.contentOffset.y {
+            if headerTopConstraint.constant <= -headerHeightConstraint.constant { return }
+            // スクロールするとヘッダーのトップの値がマイナスされていく
             headerTopConstraint.constant -= 1
+        // 下にスクロールする時
+        } else if self.prevContentOffset.y > scrollView.contentOffset.y {
+            if headerTopConstraint.constant >= 0 { return }
+            // スクロールするとヘッダーのトップの値がプラスされていく
+            headerTopConstraint.constant += 1
         }
     }
 }
