@@ -37,13 +37,13 @@ class ViewController: UIViewController {
     // 検索リストからのレスポンス<
     private func fetchYoutubeSerachInfo() {
         let params = ["q": "nba"]
-        // Utilityから処理を呼び出す<
+        // Serviceから処理を呼び出す<
         API.shared.request(path: .search, params: params, type: Video.self) { (video) in
             self.VideoItems = video.items
             let id = self.VideoItems[0].snippet.channelId
             self.fetchYoutubeChannelInfo(id: id)
         }
-        // Utilityから処理を呼び出す>
+        // Serviceから処理を呼び出す>
     }
     // 検索リストからのレスポンス>
     
@@ -52,14 +52,14 @@ class ViewController: UIViewController {
         let params = [
             "id": id
         ]
-        // Utilityから処理を呼び出す<
+        // Serviceから処理を呼び出す<
         API.shared.request(path: .channels, params: params, type: Channel.self) { (channel) in
             self.VideoItems.forEach{ (item) in
                 item.channel = channel
             }
             self.videoListCollectionView.reloadData()
         }
-        // Utilityから処理を呼び出す>
+        // Serviceから処理を呼び出す>
     }
     // チャンネルリストからのレスポンス>
     
@@ -69,18 +69,45 @@ class ViewController: UIViewController {
             self.prevContentOffset = scrollView.contentOffset
         }
         // 0.5秒後の値を比較してどの方向にスクロールしているのかを判断する>
+        // ヘッダーのalpha設定
+        let alphaRatio = 1 / headerHeightConstraint.constant
         // 上にスクロールする時
         if self.prevContentOffset.y < scrollView.contentOffset.y {
             if headerTopConstraint.constant <= -headerHeightConstraint.constant { return }
-            // スクロールするとヘッダーのトップの値がマイナスされていく
+            // スクロールするとヘッダーのトップの値とalphaがマイナスされていく
             headerTopConstraint.constant -= 1
+            headerView.alpha -= alphaRatio
         // 下にスクロールする時
         } else if self.prevContentOffset.y > scrollView.contentOffset.y {
             if headerTopConstraint.constant >= 0 { return }
-            // スクロールするとヘッダーのトップの値がプラスされていく
+            // スクロールするとヘッダーのトップの値とalphaがプラスされていく
             headerTopConstraint.constant += 1
+            headerView.alpha += alphaRatio
         }
     }
+    // ヘッダーが途中で止まった時の処理<
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        headerViewEndAnimation()
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        headerViewEndAnimation()
+    }
+    private func headerViewEndAnimation() {
+        if headerTopConstraint.constant < -headerHeightConstraint.constant / 2 {
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: [], animations: {
+                self.headerTopConstraint.constant = -self.headerHeightConstraint.constant
+                self.headerView.alpha = 0
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: [], animations: {
+                self.headerTopConstraint.constant = 0
+                self.headerView.alpha = 1
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    // ヘッダーが途中で止まった時の処理>
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
