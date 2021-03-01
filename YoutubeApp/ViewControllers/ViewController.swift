@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     
     private var prevContentOffset: CGPoint = .init(x: 0, y: 0)
+    private let headerMoveHeight: CGFloat = 5
     
     private let cellId = "cellId"
     private var VideoItems = [Item]()
@@ -83,20 +84,22 @@ class ViewController: UIViewController {
         if self.prevContentOffset.y < scrollView.contentOffset.y {
             if headerTopConstraint.constant <= -headerHeightConstraint.constant { return }
             // スクロールするとヘッダーのトップの値とalphaがマイナスされていく
-            headerTopConstraint.constant -= 1
-            headerView.alpha -= alphaRatio
+            headerTopConstraint.constant -= headerMoveHeight
+            headerView.alpha -= alphaRatio * headerMoveHeight
         // 下にスクロールする時
         } else if self.prevContentOffset.y > scrollView.contentOffset.y {
             if headerTopConstraint.constant >= 0 { return }
             // スクロールするとヘッダーのトップの値とalphaがプラスされていく
-            headerTopConstraint.constant += 1
-            headerView.alpha += alphaRatio
+            headerTopConstraint.constant += headerMoveHeight
+            headerView.alpha += alphaRatio * headerMoveHeight
         }
     }
     
     // ヘッダーが途中で止まった時の処理<
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        headerViewEndAnimation()
+        if !decelerate {
+            headerViewEndAnimation()
+        }
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         headerViewEndAnimation()
