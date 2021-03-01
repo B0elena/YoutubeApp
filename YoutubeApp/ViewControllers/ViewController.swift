@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     private let headerMoveHeight: CGFloat = 5
     
     private let cellId = "cellId"
-    private var VideoItems = [Item]()
+    private var videoItems = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +40,8 @@ class ViewController: UIViewController {
         let params = ["q": "nba"]
         // Serviceから処理を呼び出す<
         API.shared.request(path: .search, params: params, type: Video.self) { (video) in
-            self.VideoItems = video.items
-            let id = self.VideoItems[0].snippet.channelId
+            self.videoItems = video.items
+            let id = self.videoItems[0].snippet.channelId
             self.fetchYoutubeChannelInfo(id: id)
         }
         // Serviceから処理を呼び出す>
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         ]
         // Serviceから処理を呼び出す<
         API.shared.request(path: .channels, params: params, type: Channel.self) { (channel) in
-            self.VideoItems.forEach{ (item) in
+            self.videoItems.forEach{ (item) in
                 item.channel = channel
             }
             self.videoListCollectionView.reloadData()
@@ -74,7 +74,7 @@ class ViewController: UIViewController {
         // スクロールし過ぎた時のヘッダーの処理<
         guard let presentIndexPath = videoListCollectionView.indexPathForItem(at: scrollView.contentOffset) else { return }
         if scrollView.contentOffset.y < 0 { return }
-        if presentIndexPath.row >= VideoItems.count -2 { return }
+        if presentIndexPath.row >= videoItems.count - 2 { return }
         // スクロールし過ぎた時のヘッダーの処理>
         
         // ヘッダーのalpha設定
@@ -130,12 +130,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     // セルの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return VideoItems.count
+        return videoItems.count
     }
     // セルの設定
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! VideoListCell
-        cell.videoItem = VideoItems[indexPath.row]
+        cell.videoItem = videoItems[indexPath.row]
         
         return cell
     }
