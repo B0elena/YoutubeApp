@@ -69,8 +69,16 @@ class ViewController: UIViewController {
             self.prevContentOffset = scrollView.contentOffset
         }
         // 0.5秒後の値を比較してどの方向にスクロールしているのかを判断する>
+        
+        // スクロールし過ぎた時のヘッダーの処理<
+        guard let presentIndexPath = videoListCollectionView.indexPathForItem(at: scrollView.contentOffset) else { return }
+        if scrollView.contentOffset.y < 0 { return }
+        if presentIndexPath.row >= VideoItems.count -2 { return }
+        // スクロールし過ぎた時のヘッダーの処理>
+        
         // ヘッダーのalpha設定
         let alphaRatio = 1 / headerHeightConstraint.constant
+        
         // 上にスクロールする時
         if self.prevContentOffset.y < scrollView.contentOffset.y {
             if headerTopConstraint.constant <= -headerHeightConstraint.constant { return }
@@ -85,6 +93,7 @@ class ViewController: UIViewController {
             headerView.alpha += alphaRatio
         }
     }
+    
     // ヘッダーが途中で止まった時の処理<
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         headerViewEndAnimation()
