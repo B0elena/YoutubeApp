@@ -64,7 +64,34 @@ class ViewController: UIViewController {
     }
     // チャンネルリストからのレスポンス>
     
+    // ヘッダーが途中で止まった時の処理<
+    private func headerViewEndAnimation() {
+        if headerTopConstraint.constant < -headerHeightConstraint.constant / 2 {
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: [], animations: {
+                self.headerTopConstraint.constant = -self.headerHeightConstraint.constant
+                self.headerView.alpha = 0
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: [], animations: {
+                self.headerTopConstraint.constant = 0
+                self.headerView.alpha = 1
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    // ヘッダーが途中で止まった時の処理>
+}
+
+// MARK: -ScrollViewのDelegateメソッド
+extension ViewController {
+    // scrollVillがスクロールした時に呼ばれるメソッド<
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        headerAnimetion(scrollView: scrollView)
+    }
+    // scrollVillがスクロールした時に呼ばれるメソッド>
+    
+    private func headerAnimetion(scrollView: UIScrollView) {
         // 0.5秒後の値を比較してどの方向にスクロールしているのかを判断する<
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.prevContentOffset = scrollView.contentOffset
@@ -94,34 +121,19 @@ class ViewController: UIViewController {
             headerView.alpha += alphaRatio * headerMoveHeight
         }
     }
-    
-    // ヘッダーが途中で止まった時の処理<
+    // scrollViewのスクロールがピタッと止まった時に呼ばれる
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             headerViewEndAnimation()
         }
     }
+    // scrollViewのスクロールが止まった時に呼ばれる
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         headerViewEndAnimation()
     }
-    private func headerViewEndAnimation() {
-        if headerTopConstraint.constant < -headerHeightConstraint.constant / 2 {
-            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: [], animations: {
-                self.headerTopConstraint.constant = -self.headerHeightConstraint.constant
-                self.headerView.alpha = 0
-                self.view.layoutIfNeeded()
-            })
-        } else {
-            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: [], animations: {
-                self.headerTopConstraint.constant = 0
-                self.headerView.alpha = 1
-                self.view.layoutIfNeeded()
-            })
-        }
-    }
-    // ヘッダーが途中で止まった時の処理>
 }
 
+// MARK: -UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     // セルの大きさ
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
