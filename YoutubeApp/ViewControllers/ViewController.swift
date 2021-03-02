@@ -20,19 +20,22 @@ class ViewController: UIViewController {
     private let headerMoveHeight: CGFloat = 5
     
     private let cellId = "cellId"
+    private let atentionCellId = "atentionCellId"
     private var videoItems = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
+        fetchYoutubeSerachInfo()
+    }
+    
+    private func setupViews() {
         videoListCollectionView.delegate = self
         videoListCollectionView.dataSource = self
-                
         videoListCollectionView.register(UINib(nibName: "VideoListCell", bundle: nil), forCellWithReuseIdentifier: cellId)
-        
+        videoListCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: atentionCellId)
         profileImageView.layer.cornerRadius = 20
-        
-        fetchYoutubeSerachInfo()
     }
     
     // 検索リストからのレスポンス<
@@ -142,13 +145,25 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     // セルの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return videoItems.count
+        return videoItems.count + 1
     }
     // セルの設定
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! VideoListCell
-        cell.videoItem = videoItems[indexPath.row]
-        
-        return cell
+        if indexPath.row == 2 {
+            let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: atentionCellId, for: indexPath)
+            cell.backgroundColor = .green
+            return cell
+        } else {
+            let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! VideoListCell
+            
+            if self.videoItems.count == 0 { return cell }
+            
+            if indexPath.row > 2 {
+                cell.videoItem = videoItems[indexPath.row - 1]
+            } else {
+                cell.videoItem = videoItems[indexPath.row]
+            }
+            return cell
+        }
     }
 }
