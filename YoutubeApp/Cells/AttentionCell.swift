@@ -9,6 +9,7 @@ import UIKit
 
 class AttentionCell: UICollectionViewCell {
     
+    var videoItems = [Item]()
     private let attentionId = "attentionId"
     
     lazy var attentionCollectionView: UICollectionView = {
@@ -35,8 +36,8 @@ class AttentionCell: UICollectionViewCell {
             attentionCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             attentionCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ].forEach { $0.isActive = true}
-        
-        attentionCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: attentionId)
+        attentionCollectionView.register(UINib(nibName: "AttentionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: attentionId)
+        attentionCollectionView.contentInset = .init(top: 0, left: 15, bottom: 0, right: 15)
     }
     
     required init?(coder: NSCoder) {
@@ -47,8 +48,15 @@ class AttentionCell: UICollectionViewCell {
 // MARK: -UICollectionViewDelegate,UICollectionViewDataSource
 extension AttentionCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: self.frame.width, height: self.frame.height)
+        
+        let height = self.frame.height
+        
+        return .init(width: height, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -56,8 +64,7 @@ extension AttentionCell: UICollectionViewDelegate, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = attentionCollectionView.dequeueReusableCell(withReuseIdentifier: attentionId, for: indexPath)
-        cell.backgroundColor = .yellow
+        let cell = attentionCollectionView.dequeueReusableCell(withReuseIdentifier: attentionId, for: indexPath) as! AttentionCollectionViewCell
         
         return cell
     }

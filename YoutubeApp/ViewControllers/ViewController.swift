@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     
     // 検索リストからのレスポンス<
     private func fetchYoutubeSerachInfo() {
-        let params = ["q": "nba"]
+        let params = ["q": "netflix"]
         // Serviceから処理を呼び出す<
         API.shared.request(path: .search, params: params, type: Video.self) { (video) in
             self.videoItems = video.items
@@ -143,7 +143,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         let width = self.view.frame.width
         
         if indexPath.row  == 2 {
-            return .init(width: width, height: 250)
+            return .init(width: width, height: 200)
         } else {
             return .init(width: width, height: width)
         }
@@ -157,6 +157,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         if indexPath.row == 2 {
             
             let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: atentionCellId, for: indexPath) as! AttentionCell
+            
+            cell.videoItems = self.videoItems
+            
             return cell
             
         } else {
