@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         videoListCollectionView.delegate = self
         videoListCollectionView.dataSource = self
         videoListCollectionView.register(UINib(nibName: "VideoListCell", bundle: nil), forCellWithReuseIdentifier: cellId)
-        videoListCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: atentionCellId)
+        videoListCollectionView.register(AttentionCell.self, forCellWithReuseIdentifier: atentionCellId)
         profileImageView.layer.cornerRadius = 20
     }
     
@@ -141,7 +141,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     // セルの大きさ
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.view.frame.width
-        return .init(width: width, height: width)
+        
+        if indexPath.row  == 2 {
+            return .init(width: width, height: 250)
+        } else {
+            return .init(width: width, height: width)
+        }
     }
     // セルの数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -150,19 +155,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     // セルの設定
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 2 {
-            let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: atentionCellId, for: indexPath)
-            cell.backgroundColor = .green
+            
+            let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: atentionCellId, for: indexPath) as! AttentionCell
             return cell
+            
         } else {
+            
             let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! VideoListCell
             
             if self.videoItems.count == 0 { return cell }
-            
             if indexPath.row > 2 {
                 cell.videoItem = videoItems[indexPath.row - 1]
             } else {
                 cell.videoItem = videoItems[indexPath.row]
             }
+            
             return cell
         }
     }
