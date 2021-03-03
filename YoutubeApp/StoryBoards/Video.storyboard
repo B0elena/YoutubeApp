@@ -11,7 +11,7 @@
         <!--Video View Controller-->
         <scene sceneID="dbo-E9-00n">
             <objects>
-                <viewController storyboardIdentifier="VideoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gMW-d3-02g" customClass="VideoViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoViewController" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gMW-d3-02g" customClass="VideoViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lR9-9I-KlP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BTF-Ii-Tqd"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="top" secondItem="9SC-ju-KnT" secondAttribute="bottom" id="7qV-Dq-Q3c"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="AhS-di-RDY"/>

@@ -141,8 +141,6 @@ extension VideoListViewController: UICollectionViewDelegate, UICollectionViewDat
     // セルを選んだ時の遷移
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let videoViewController = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(identifier: "VideoViewController") as VideoViewController
-        // モーダルをフルスクリーンにする
-        videoViewController.modalPresentationStyle = .fullScreen
         // VideoViewControllerに情報を渡す<
         //  if indexPath.row > 2 {
         //      videoViewController.selectedItem = videoItems[indexPath.row - 1]
