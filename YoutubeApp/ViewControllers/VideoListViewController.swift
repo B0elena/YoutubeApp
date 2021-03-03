@@ -143,6 +143,16 @@ extension VideoListViewController: UICollectionViewDelegate, UICollectionViewDat
         let videoViewController = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(identifier: "VideoViewController") as VideoViewController
         // モーダルをフルスクリーンにする
         videoViewController.modalPresentationStyle = .fullScreen
+        // VideoViewControllerに情報を渡す<
+        //  if indexPath.row > 2 {
+        //      videoViewController.selectedItem = videoItems[indexPath.row - 1]
+        //  } else {
+        //     videoViewController.selectedItem = videoItems[indexPath.row]
+        //   }
+        // 上の条件分岐を短く書く(同じ意味)
+        videoViewController.selectedItem = indexPath.row > 2 ? videoItems[indexPath.row - 1] : videoItems[indexPath.row]
+        // VideoViewControllerに情報を渡す>
+        
         self.present(videoViewController, animated: true, completion: nil)
     }
     
@@ -175,6 +185,7 @@ extension VideoListViewController: UICollectionViewDelegate, UICollectionViewDat
             let cell = videoListCollectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! VideoListCell
             
             if self.videoItems.count == 0 { return cell }
+            
             if indexPath.row > 2 {
                 cell.videoItem = videoItems[indexPath.row - 1]
             } else {
