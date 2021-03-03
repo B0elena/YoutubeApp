@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class VideoListViewController: UIViewController {
 
     @IBOutlet weak var videoListCollectionView: UICollectionView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: -ScrollViewのDelegateメソッド
-extension ViewController {
+extension VideoListViewController {
     // scrollVillがスクロールした時に呼ばれるメソッド<
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         headerAnimetion(scrollView: scrollView)
@@ -137,7 +137,15 @@ extension ViewController {
 }
 
 // MARK: -UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension VideoListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    // セルを選んだ時の遷移
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let videoViewController = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(identifier: "VideoViewController") as VideoViewController
+        // モーダルをフルスクリーンにする
+        videoViewController.modalPresentationStyle = .fullScreen
+        self.present(videoViewController, animated: true, completion: nil)
+    }
+    
     // セルの大きさ
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.view.frame.width
