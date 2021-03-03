@@ -16,6 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OyX-xZ-gmz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkv-ym-hCp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9SC-ju-KnT">
                                 <rect key="frame" x="0.0" y="44" width="414" height="280"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -100,17 +108,27 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BTF-Ii-Tqd"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="OyX-xZ-gmz" firstAttribute="trailing" secondItem="BTF-Ii-Tqd" secondAttribute="trailing" id="5Fh-hn-h2K"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="top" secondItem="9SC-ju-KnT" secondAttribute="bottom" id="7qV-Dq-Q3c"/>
+                            <constraint firstItem="OyX-xZ-gmz" firstAttribute="top" secondItem="lR9-9I-KlP" secondAttribute="top" id="87q-LU-eE9"/>
+                            <constraint firstAttribute="bottom" secondItem="OyX-xZ-gmz" secondAttribute="bottom" id="8rg-ir-0vE"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="AhS-di-RDY"/>
+                            <constraint firstItem="OyX-xZ-gmz" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="An2-Q1-hBb"/>
                             <constraint firstItem="BTF-Ii-Tqd" firstAttribute="trailing" secondItem="9SC-ju-KnT" secondAttribute="trailing" id="DJC-5Y-ndM"/>
                             <constraint firstItem="9SC-ju-KnT" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="KND-oW-grK"/>
+                            <constraint firstAttribute="bottom" secondItem="tkv-ym-hCp" secondAttribute="bottom" id="MrH-P1-5iK"/>
+                            <constraint firstItem="tkv-ym-hCp" firstAttribute="trailing" secondItem="BTF-Ii-Tqd" secondAttribute="trailing" id="QNN-yY-Pmn"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="trailing" secondItem="BTF-Ii-Tqd" secondAttribute="trailing" id="Qje-UK-WG1"/>
                             <constraint firstItem="9SC-ju-KnT" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="iVX-Kh-20p"/>
+                            <constraint firstItem="tkv-ym-hCp" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="r4b-Y2-bPw"/>
+                            <constraint firstItem="tkv-ym-hCp" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="uXV-P3-Puk"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backView" destination="tkv-ym-hCp" id="eka-gV-Hhg"/>
+                        <outlet property="baseBackGroundView" destination="OyX-xZ-gmz" id="Fqm-KC-dlQ"/>
                         <outlet property="channelImageView" destination="v0E-LH-tUN" id="kC0-kE-ARz"/>
                         <outlet property="channelTitleLabel" destination="yb8-Tk-6nu" id="CJP-6L-22y"/>
                         <outlet property="videoImageView" destination="9SC-ju-KnT" id="fVI-xJ-lkf"/>

@@ -16,12 +16,22 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var channelImageView: UIImageView!
     @IBOutlet weak var videoTitleLabel: UILabel!
     @IBOutlet weak var channelTitleLabel: UILabel!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var baseBackGroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
 
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.baseBackGroundView.alpha = 1
+        }
     }
     
     private func setupViews() {
