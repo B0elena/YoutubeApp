@@ -16,12 +16,25 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var channelImageView: UIImageView!
     @IBOutlet weak var videoTitleLabel: UILabel!
     @IBOutlet weak var channelTitleLabel: UILabel!
+    @IBOutlet weak var baseBackGroundView: UIView!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var videoImageViewHightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var videoImageViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var videoImageViewTrailingConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 0.3) {
+            self.baseBackGroundView.alpha = 1
+        }
     }
     
     private func setupViews() {
@@ -49,6 +62,35 @@ class VideoViewController: UIViewController {
         if gesture.state == .changed {
             
             imageView.transform = CGAffineTransform(translationX: 0, y: move.y)
+            
+            // 左右のpadding設定
+            let movingConstant = move.y / 30
+            
+            if videoImageViewLeadingConstraint.constant <= 12 {
+                videoImageViewTrailingConstraint.constant = -movingConstant
+                videoImageViewLeadingConstraint.constant = movingConstant
+            }
+            // imageViewの高さの動き
+            //  280(最大値) - 70(最小値) = 210
+            let parantViewHeight = self.view.frame.height
+            let heightRatio = 210 / (parantViewHeight - (parantViewHeight / 6))
+            let moveHeight = move.y * heightRatio
+            
+            videoImageViewHightConstraint.constant = 280 - moveHeight
+            
+            // imageViewの横幅の動き 150(最小値)
+            let orginalWidth = self.view.frame.width
+            let minimumImageViewTrailingConstant = -(orginalWidth - (150 + 20))
+            let constant = orginalWidth - move.y
+            
+            
+            if minimumImageViewTrailingConstant > constant {
+                videoImageViewTrailingConstraint.constant = minimumImageViewTrailingConstant
+                return
+            }
+            if constant < -12 {
+                videoImageViewTrailingConstraint.constant = constant
+            }
             
         } else if gesture.state == .ended {
             
