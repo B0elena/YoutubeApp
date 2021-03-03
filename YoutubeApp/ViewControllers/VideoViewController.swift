@@ -81,15 +81,34 @@ class VideoViewController: UIViewController {
             print("moveHeight: ", moveHeight)
             
             // imageViewの横幅の動き 150(最小値)
+            let originalWidth = self.view.frame.width
+            let minimumImageViewTrailingConstant = originalWidth - (150 + 12)
+            let constant = originalWidth - move.y
             
+            if minimumImageViewTrailingConstant < -constant {
+                videoImageViewTrailingConstraint.constant = minimumImageViewTrailingConstant
+                return
+            }
             
+            if constant < -12 {
+                videoImageViewTrailingConstraint.constant = -constant
+            }
         } else if gesture.state == .ended {
             
             UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: [], animations: {
-                
-                imageView.transform = .identity
-                self.view.layoutIfNeeded()
+
+                self.backToIdentityAllViews(imageView: imageView as! UIImageView)
             })
         }
+    }
+    
+    private func backToIdentityAllViews(imageView: UIImageView) {
+        // 手を離した時の処理
+        imageView.transform = .identity
+        self.videoImageViewHeightConstraint.constant = 280
+        self.videoImageViewLeadingConstraint.constant = 0
+        self.videoImageViewTrailingConstraint.constant = 0
+        
+        self.view.layoutIfNeeded()
     }
 }
