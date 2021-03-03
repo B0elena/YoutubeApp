@@ -17,6 +17,7 @@ class ChannelItem: Decodable {
 }
 
 class ChannelSnippet: Decodable {
+    let title: String
     let thumbnails: Thumbnail
 }
 // チャンネルの情報の定義>
