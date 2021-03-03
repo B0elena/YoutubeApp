@@ -11,19 +11,11 @@
         <!--Video View Controller-->
         <scene sceneID="dbo-E9-00n">
             <objects>
-                <viewController storyboardIdentifier="VideoViewController" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gMW-d3-02g" customClass="VideoViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VideoViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gMW-d3-02g" customClass="VideoViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lR9-9I-KlP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZDt-UA-D3U">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGP-dd-dGn">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9SC-ju-KnT">
                                 <rect key="frame" x="0.0" y="44" width="414" height="280"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
@@ -108,33 +100,20 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BTF-Ii-Tqd"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZDt-UA-D3U" firstAttribute="trailing" secondItem="BTF-Ii-Tqd" secondAttribute="trailing" id="1Zb-nB-Cig"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="top" secondItem="9SC-ju-KnT" secondAttribute="bottom" id="7qV-Dq-Q3c"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="AhS-di-RDY"/>
-                            <constraint firstItem="cGP-dd-dGn" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="BO9-6m-7sG"/>
                             <constraint firstItem="BTF-Ii-Tqd" firstAttribute="trailing" secondItem="9SC-ju-KnT" secondAttribute="trailing" id="DJC-5Y-ndM"/>
-                            <constraint firstAttribute="bottom" secondItem="cGP-dd-dGn" secondAttribute="bottom" id="Jfk-C6-xGe"/>
                             <constraint firstItem="9SC-ju-KnT" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="KND-oW-grK"/>
-                            <constraint firstItem="ZDt-UA-D3U" firstAttribute="top" secondItem="lR9-9I-KlP" secondAttribute="top" id="Lc3-Ds-VJr"/>
-                            <constraint firstItem="ZDt-UA-D3U" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="NFQ-ou-3hY"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="trailing" secondItem="BTF-Ii-Tqd" secondAttribute="trailing" id="Qje-UK-WG1"/>
-                            <constraint firstItem="cGP-dd-dGn" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="aHA-WO-XTK"/>
-                            <constraint firstItem="cGP-dd-dGn" firstAttribute="trailing" secondItem="BTF-Ii-Tqd" secondAttribute="trailing" id="heb-Ar-CCP"/>
                             <constraint firstItem="9SC-ju-KnT" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="iVX-Kh-20p"/>
-                            <constraint firstAttribute="bottom" secondItem="ZDt-UA-D3U" secondAttribute="bottom" id="ykB-cM-6qg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="backView" destination="cGP-dd-dGn" id="wFW-KK-E09"/>
-                        <outlet property="baseBackGroundView" destination="ZDt-UA-D3U" id="VMu-hh-J4K"/>
                         <outlet property="channelImageView" destination="v0E-LH-tUN" id="kC0-kE-ARz"/>
                         <outlet property="channelTitleLabel" destination="yb8-Tk-6nu" id="CJP-6L-22y"/>
                         <outlet property="videoImageView" destination="9SC-ju-KnT" id="fVI-xJ-lkf"/>
-                        <outlet property="videoImageViewHightConstraint" destination="OY2-F5-CpK" id="DuA-Uk-VV4"/>
-                        <outlet property="videoImageViewLeadingConstraint" destination="KND-oW-grK" id="SV5-92-0JP"/>
-                        <outlet property="videoImageViewTrailingConstraint" destination="DJC-5Y-ndM" id="8RA-yD-T55"/>
                         <outlet property="videoTitleLabel" destination="ge5-c2-M96" id="Z3S-jz-lz5"/>
                     </connections>
                 </viewController>
