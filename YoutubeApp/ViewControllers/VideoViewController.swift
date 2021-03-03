@@ -18,6 +18,9 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var channelTitleLabel: UILabel!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var baseBackGroundView: UIView!
+    @IBOutlet weak var videoImageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var videoImageViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var videoImageViewTrailingConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +62,26 @@ class VideoViewController: UIViewController {
         if gesture.state == .changed {
             
             imageView.transform = CGAffineTransform(translationX: 0, y: move.y)
+            
+            // 左右のpadding設定
+            let movingConstant = move.y / 30
+            
+            if movingConstant <= 12 {
+                videoImageViewTrailingConstraint.constant = movingConstant
+                videoImageViewLeadingConstraint.constant = movingConstant
+            }
+            
+            // imageViewの高さの動き
+            // 280(最大値) - 70(最小値) = 210
+            let parantViewHeight = self.view.frame.height
+            let heightRatio = 210 / (parantViewHeight - (parantViewHeight / 6))
+            let moveHeight = move.y * heightRatio
+            
+            videoImageViewHeightConstraint.constant = 280 - moveHeight
+            print("moveHeight: ", moveHeight)
+            
+            // imageViewの横幅の動き 150(最小値)
+            
             
         } else if gesture.state == .ended {
             
