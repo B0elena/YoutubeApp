@@ -38,5 +38,25 @@ class VideoViewController: UIViewController {
         //  チャンネルイメージの読み込みをして反映>
         videoTitleLabel.text = selectedItem?.snippet.channelTitle
         channelTitleLabel.text = selectedItem?.channel?.items[0].snippet.title
+        // イメージをスワイプした時の情報の取得の処理
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panVideoImageView))
+        videoImageView.addGestureRecognizer(panGesture)
+    }
+    @objc private func panVideoImageView(gesture: UIPanGestureRecognizer) {
+        guard let imageView = gesture.view else { return }
+        let move = gesture.translation(in: imageView)
+        
+        if gesture.state == .changed {
+            
+            imageView.transform = CGAffineTransform(translationX: 0, y: move.y)
+            
+        } else if gesture.state == .ended {
+            
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: [], animations: {
+                
+                imageView.transform = .identity
+                self.view.layoutIfNeeded()
+            })
+        }
     }
 }
