@@ -129,6 +129,7 @@
                     <connections>
                         <outlet property="backView" destination="tkv-ym-hCp" id="eka-gV-Hhg"/>
                         <outlet property="backViewTopConstraint" destination="uXV-P3-Puk" id="aeW-hQ-bPL"/>
+                        <outlet property="backViewTrailingConstraint" destination="QNN-yY-Pmn" id="GSg-em-6uP"/>
                         <outlet property="baseBackGroundView" destination="OyX-xZ-gmz" id="Fqm-KC-dlQ"/>
                         <outlet property="channelImageView" destination="v0E-LH-tUN" id="kC0-kE-ARz"/>
                         <outlet property="channelTitleLabel" destination="yb8-Tk-6nu" id="CJP-6L-22y"/>

@@ -11,19 +11,33 @@ import Nuke
 class VideoViewController: UIViewController {
 
     var selectedItem: Item?
+    private var imageViewCenterY: CGFloat?
     
+    var videoImageMaxY: CGFloat {
+        let ecludeValue = view.safeAreaInsets.bottom + (imageViewCenterY ?? 0)
+        return view.frame.maxY - ecludeValue
+    }
+    
+    // videoImageView
     @IBOutlet weak var videoImageView: UIImageView!
-    @IBOutlet weak var channelImageView: UIImageView!
-    @IBOutlet weak var videoTitleLabel: UILabel!
-    @IBOutlet weak var channelTitleLabel: UILabel!
-    @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var baseBackGroundView: UIView!
-    @IBOutlet weak var describeView: UIView!
     @IBOutlet weak var videoImageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var videoImageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var videoImageViewTrailingConstraint: NSLayoutConstraint!
+    
+    // backView
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var backViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backViewTrailingConstraint: NSLayoutConstraint!
+
+    // describeView
+    @IBOutlet weak var describeView: UIView!
     @IBOutlet weak var describeViewTopConstraint: NSLayoutConstraint!
+
+    @IBOutlet weak var channelImageView: UIImageView!
+    @IBOutlet weak var videoTitleLabel: UILabel!
+    @IBOutlet weak var channelTitleLabel: UILabel!
+    @IBOutlet weak var baseBackGroundView: UIView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +55,8 @@ class VideoViewController: UIViewController {
     }
     
     private func setupViews() {
+        imageViewCenterY = videoImageView.center.y
+        
         channelImageView.layer.cornerRadius = 22.5
         //サムネイルの読み込みをして反映<
         if let url = URL(string: selectedItem?.snippet.thumbnails.medium.url ?? "") {
@@ -64,6 +80,11 @@ class VideoViewController: UIViewController {
         
         if gesture.state == .changed {
             
+            if videoImageMaxY <= move.y {
+                moveToBottom(imageView: imageView as! UIImageView)
+                return
+            }
+            
             imageView.transform = CGAffineTransform(translationX: 0, y: move.y)
             
             // 左右のpadding設定
@@ -72,6 +93,8 @@ class VideoViewController: UIViewController {
             if movingConstant <= 12 {
                 videoImageViewTrailingConstraint.constant = movingConstant
                 videoImageViewLeadingConstraint.constant = movingConstant
+                
+                backViewTrailingConstraint.constant = -movingConstant
             }
             
             // imageViewの高さの動き
@@ -87,7 +110,6 @@ class VideoViewController: UIViewController {
             // alpha値の設定
             let alphaRatio = move.y / (parantViewHeight / 2)
             describeView.alpha = 1 - alphaRatio
-            
             
             // imageViewの横幅の動き 150(最小値)
             let originalWidth = self.view.frame.width
@@ -109,6 +131,11 @@ class VideoViewController: UIViewController {
                 self.backToIdentityAllViews(imageView: imageView as! UIImageView)
             })
         }
+    }
+    
+    private func moveToBottom(imageView: UIImageView) {
+        imageView.transform = CGAffineTransform(translationX: 0, y: videoImageMaxY)
+        backView.transform = CGAffineTransform(translationX: 0, y: videoImageMaxY)
     }
     
     private func backToIdentityAllViews(imageView: UIImageView) {
