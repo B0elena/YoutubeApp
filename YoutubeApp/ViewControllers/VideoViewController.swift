@@ -148,18 +148,19 @@ class VideoViewController: UIViewController {
                 })
             } else {
                 UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: []) {
-                    
                     self.moveToBottom(imageView: imageView as! UIImageView)
                 } completion: { _ in
                     // 動きが完了したら消える<
-                    self.videoImageView.isHidden = true
-                    self.videoImageBackView.isHidden = true
-                    
-                    let image = self.videoImageView.image
-                    let userInfo: [String: UIImage?] = ["image": image]
-                    NotificationCenter.default.post(name: .init("thumbnailImage"), object: nil, userInfo: userInfo as [AnyHashable : Any])
-                    
-                    self.dismiss(animated: false, completion: nil)
+                    UIView.animate(withDuration: 0.2) {
+                        self.videoImageView.isHidden = true
+                        self.videoImageBackView.isHidden = true
+                        
+                        let image = self.videoImageView.image
+                        let userInfo: [String: UIImage?] = ["image": image]
+                        NotificationCenter.default.post(name: .init("thumbnailImage"), object: nil, userInfo: userInfo as [AnyHashable : Any])
+                    } completion: { _ in
+                        self.dismiss(animated: false, completion: nil)
+                    }
                     // 動きが完了したら消える>
                 }
             }
