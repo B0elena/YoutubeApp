@@ -18,9 +18,12 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var channelTitleLabel: UILabel!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var baseBackGroundView: UIView!
+    @IBOutlet weak var describeView: UIView!
     @IBOutlet weak var videoImageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var videoImageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var videoImageViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var backViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var describeViewTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,8 +80,14 @@ class VideoViewController: UIViewController {
             let heightRatio = 210 / (parantViewHeight - (parantViewHeight / 6))
             let moveHeight = move.y * heightRatio
             
+            backViewTopConstraint.constant = move.y
             videoImageViewHeightConstraint.constant = 280 - moveHeight
-            print("moveHeight: ", moveHeight)
+            describeViewTopConstraint.constant = move.y
+            
+            // alpha値の設定
+            let alphaRatio = move.y / (parantViewHeight / 2)
+            describeView.alpha = 1 - alphaRatio
+            
             
             // imageViewの横幅の動き 150(最小値)
             let originalWidth = self.view.frame.width

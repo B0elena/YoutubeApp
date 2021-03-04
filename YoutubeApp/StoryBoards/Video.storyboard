@@ -114,23 +114,26 @@
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="top" secondItem="9SC-ju-KnT" secondAttribute="bottom" id="7qV-Dq-Q3c"/>
                             <constraint firstItem="OyX-xZ-gmz" firstAttribute="top" secondItem="lR9-9I-KlP" secondAttribute="top" id="87q-LU-eE9"/>
                             <constraint firstAttribute="bottom" secondItem="OyX-xZ-gmz" secondAttribute="bottom" id="8rg-ir-0vE"/>
-                            <constraint firstItem="oWZ-lW-7JD" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="AhS-di-RDY"/>
+                            <constraint firstItem="oWZ-lW-7JD" firstAttribute="leading" secondItem="tkv-ym-hCp" secondAttribute="leading" id="AhS-di-RDY"/>
                             <constraint firstItem="OyX-xZ-gmz" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="An2-Q1-hBb"/>
                             <constraint firstItem="BTF-Ii-Tqd" firstAttribute="trailing" secondItem="9SC-ju-KnT" secondAttribute="trailing" id="DJC-5Y-ndM"/>
                             <constraint firstItem="9SC-ju-KnT" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="KND-oW-grK"/>
                             <constraint firstAttribute="bottom" secondItem="tkv-ym-hCp" secondAttribute="bottom" id="MrH-P1-5iK"/>
-                            <constraint firstItem="tkv-ym-hCp" firstAttribute="trailing" secondItem="BTF-Ii-Tqd" secondAttribute="trailing" id="QNN-yY-Pmn"/>
-                            <constraint firstItem="oWZ-lW-7JD" firstAttribute="trailing" secondItem="BTF-Ii-Tqd" secondAttribute="trailing" id="Qje-UK-WG1"/>
+                            <constraint firstItem="tkv-ym-hCp" firstAttribute="trailing" secondItem="lR9-9I-KlP" secondAttribute="trailing" id="QNN-yY-Pmn"/>
+                            <constraint firstItem="oWZ-lW-7JD" firstAttribute="trailing" secondItem="tkv-ym-hCp" secondAttribute="trailing" id="Qje-UK-WG1"/>
                             <constraint firstItem="9SC-ju-KnT" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="iVX-Kh-20p"/>
-                            <constraint firstItem="tkv-ym-hCp" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="r4b-Y2-bPw"/>
+                            <constraint firstItem="tkv-ym-hCp" firstAttribute="leading" secondItem="9SC-ju-KnT" secondAttribute="leading" id="r4b-Y2-bPw"/>
                             <constraint firstItem="tkv-ym-hCp" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="uXV-P3-Puk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backView" destination="tkv-ym-hCp" id="eka-gV-Hhg"/>
+                        <outlet property="backViewTopConstraint" destination="uXV-P3-Puk" id="aeW-hQ-bPL"/>
                         <outlet property="baseBackGroundView" destination="OyX-xZ-gmz" id="Fqm-KC-dlQ"/>
                         <outlet property="channelImageView" destination="v0E-LH-tUN" id="kC0-kE-ARz"/>
                         <outlet property="channelTitleLabel" destination="yb8-Tk-6nu" id="CJP-6L-22y"/>
+                        <outlet property="describeView" destination="oWZ-lW-7JD" id="xEK-ef-TRl"/>
+                        <outlet property="describeViewTopConstraint" destination="7qV-Dq-Q3c" id="bCH-mM-kWg"/>
                         <outlet property="videoImageView" destination="9SC-ju-KnT" id="fVI-xJ-lkf"/>
                         <outlet property="videoImageViewHeightConstraint" destination="OY2-F5-CpK" id="v3Q-HU-3f4"/>
                         <outlet property="videoImageViewLeadingConstraint" destination="KND-oW-grK" id="FcZ-Mv-upo"/>
