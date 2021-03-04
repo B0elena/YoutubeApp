@@ -32,7 +32,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWZ-lW-7JD">
-                                <rect key="frame" x="0.0" y="324" width="414" height="250"/>
+                                <rect key="frame" x="0.0" y="324" width="414" height="572"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="LHd-kM-M43">
                                         <rect key="frame" x="10" y="10" width="394" height="35"/>
@@ -103,7 +103,6 @@
                                     <constraint firstItem="X9l-D9-YCh" firstAttribute="leading" secondItem="oWZ-lW-7JD" secondAttribute="leading" constant="10" id="SiD-QP-MDX"/>
                                     <constraint firstItem="LHd-kM-M43" firstAttribute="top" secondItem="oWZ-lW-7JD" secondAttribute="top" constant="10" id="Xz9-H2-DP3"/>
                                     <constraint firstItem="X9l-D9-YCh" firstAttribute="top" secondItem="LHd-kM-M43" secondAttribute="bottom" constant="10" id="a6u-lO-LRK"/>
-                                    <constraint firstAttribute="height" constant="250" id="oC6-n9-RJA"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -122,12 +121,14 @@
                             <constraint firstItem="tkv-ym-hCp" firstAttribute="trailing" secondItem="lR9-9I-KlP" secondAttribute="trailing" id="QNN-yY-Pmn"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="trailing" secondItem="tkv-ym-hCp" secondAttribute="trailing" id="Qje-UK-WG1"/>
                             <constraint firstItem="9SC-ju-KnT" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="iVX-Kh-20p"/>
+                            <constraint firstItem="tkv-ym-hCp" firstAttribute="bottom" secondItem="oWZ-lW-7JD" secondAttribute="bottom" id="mRa-oe-hgr"/>
                             <constraint firstItem="tkv-ym-hCp" firstAttribute="leading" secondItem="9SC-ju-KnT" secondAttribute="leading" id="r4b-Y2-bPw"/>
                             <constraint firstItem="tkv-ym-hCp" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="uXV-P3-Puk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backView" destination="tkv-ym-hCp" id="eka-gV-Hhg"/>
+                        <outlet property="backViewBottomConstoraint" destination="MrH-P1-5iK" id="Ddl-Gy-OQI"/>
                         <outlet property="backViewTopConstraint" destination="uXV-P3-Puk" id="aeW-hQ-bPL"/>
                         <outlet property="backViewTrailingConstraint" destination="QNN-yY-Pmn" id="GSg-em-6uP"/>
                         <outlet property="baseBackGroundView" destination="OyX-xZ-gmz" id="Fqm-KC-dlQ"/>

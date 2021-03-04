@@ -28,7 +28,8 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var backViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var backViewTrailingConstraint: NSLayoutConstraint!
-
+    @IBOutlet weak var backViewBottomConstoraint: NSLayoutConstraint!
+    
     // describeView
     @IBOutlet weak var describeView: UIView!
     @IBOutlet weak var describeViewTopConstraint: NSLayoutConstraint!
@@ -55,6 +56,8 @@ class VideoViewController: UIViewController {
     }
     
     private func setupViews() {
+        self.view.bringSubviewToFront(videoImageView)
+        
         imageViewCenterY = videoImageView.center.y
         
         channelImageView.layer.cornerRadius = 22.5
@@ -105,7 +108,13 @@ class VideoViewController: UIViewController {
             
             backViewTopConstraint.constant = move.y
             videoImageViewHeightConstraint.constant = 280 - moveHeight
-            describeViewTopConstraint.constant = move.y
+            describeViewTopConstraint.constant = move.y * 0.8
+            
+            
+            let bottomMoveY = parantViewHeight - videoImageMaxY
+            let bottomMoveRatio = bottomMoveY / videoImageMaxY
+            let bottomMoveConstant = move.y * bottomMoveRatio
+            backViewBottomConstoraint.constant = bottomMoveConstant
             
             // alpha値の設定
             let alphaRatio = move.y / (parantViewHeight / 2)
