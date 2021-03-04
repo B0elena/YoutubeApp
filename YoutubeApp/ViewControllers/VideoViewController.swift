@@ -23,6 +23,7 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var videoImageViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var videoImageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var videoImageViewTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var videoImageBackView: UIView!
     
     // backView
     @IBOutlet weak var backView: UIView!
@@ -89,6 +90,7 @@ class VideoViewController: UIViewController {
             }
             
             imageView.transform = CGAffineTransform(translationX: 0, y: move.y)
+            videoImageBackView.transform = CGAffineTransform(translationX: 0, y: move.y)
             
             // 左右のpadding設定
             let movingConstant = move.y / 30
@@ -145,6 +147,7 @@ class VideoViewController: UIViewController {
     private func moveToBottom(imageView: UIImageView) {
         imageView.transform = CGAffineTransform(translationX: 0, y: videoImageMaxY)
         backView.transform = CGAffineTransform(translationX: 0, y: videoImageMaxY)
+        videoImageBackView.transform = CGAffineTransform(translationX: 0, y: videoImageMaxY)
     }
     
     private func backToIdentityAllViews(imageView: UIImageView) {

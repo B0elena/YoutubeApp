@@ -20,6 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRC-PU-1NV">
+                                <rect key="frame" x="0.0" y="44" width="414" height="280"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tkv-ym-hCp">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -109,9 +113,11 @@
                         <viewLayoutGuide key="safeArea" id="BTF-Ii-Tqd"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="YRC-PU-1NV" firstAttribute="top" secondItem="9SC-ju-KnT" secondAttribute="top" id="2rX-Aa-ezg"/>
                             <constraint firstItem="OyX-xZ-gmz" firstAttribute="trailing" secondItem="BTF-Ii-Tqd" secondAttribute="trailing" id="5Fh-hn-h2K"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="top" secondItem="9SC-ju-KnT" secondAttribute="bottom" id="7qV-Dq-Q3c"/>
                             <constraint firstItem="OyX-xZ-gmz" firstAttribute="top" secondItem="lR9-9I-KlP" secondAttribute="top" id="87q-LU-eE9"/>
+                            <constraint firstItem="YRC-PU-1NV" firstAttribute="leading" secondItem="9SC-ju-KnT" secondAttribute="leading" id="8d2-wa-xq5"/>
                             <constraint firstAttribute="bottom" secondItem="OyX-xZ-gmz" secondAttribute="bottom" id="8rg-ir-0vE"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="leading" secondItem="tkv-ym-hCp" secondAttribute="leading" id="AhS-di-RDY"/>
                             <constraint firstItem="OyX-xZ-gmz" firstAttribute="leading" secondItem="BTF-Ii-Tqd" secondAttribute="leading" id="An2-Q1-hBb"/>
@@ -120,10 +126,12 @@
                             <constraint firstAttribute="bottom" secondItem="tkv-ym-hCp" secondAttribute="bottom" id="MrH-P1-5iK"/>
                             <constraint firstItem="tkv-ym-hCp" firstAttribute="trailing" secondItem="lR9-9I-KlP" secondAttribute="trailing" id="QNN-yY-Pmn"/>
                             <constraint firstItem="oWZ-lW-7JD" firstAttribute="trailing" secondItem="tkv-ym-hCp" secondAttribute="trailing" id="Qje-UK-WG1"/>
+                            <constraint firstItem="YRC-PU-1NV" firstAttribute="trailing" secondItem="tkv-ym-hCp" secondAttribute="trailing" id="axL-ue-9tR"/>
                             <constraint firstItem="9SC-ju-KnT" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="iVX-Kh-20p"/>
                             <constraint firstItem="tkv-ym-hCp" firstAttribute="bottom" secondItem="oWZ-lW-7JD" secondAttribute="bottom" id="mRa-oe-hgr"/>
                             <constraint firstItem="tkv-ym-hCp" firstAttribute="leading" secondItem="9SC-ju-KnT" secondAttribute="leading" id="r4b-Y2-bPw"/>
                             <constraint firstItem="tkv-ym-hCp" firstAttribute="top" secondItem="BTF-Ii-Tqd" secondAttribute="top" id="uXV-P3-Puk"/>
+                            <constraint firstItem="9SC-ju-KnT" firstAttribute="bottom" secondItem="YRC-PU-1NV" secondAttribute="bottom" id="yEu-Ud-yQh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -136,6 +144,7 @@
                         <outlet property="channelTitleLabel" destination="yb8-Tk-6nu" id="CJP-6L-22y"/>
                         <outlet property="describeView" destination="oWZ-lW-7JD" id="xEK-ef-TRl"/>
                         <outlet property="describeViewTopConstraint" destination="7qV-Dq-Q3c" id="bCH-mM-kWg"/>
+                        <outlet property="videoImageBackView" destination="YRC-PU-1NV" id="WZb-dA-alz"/>
                         <outlet property="videoImageView" destination="9SC-ju-KnT" id="fVI-xJ-lkf"/>
                         <outlet property="videoImageViewHeightConstraint" destination="OY2-F5-CpK" id="v3Q-HU-3f4"/>
                         <outlet property="videoImageViewLeadingConstraint" destination="KND-oW-grK" id="FcZ-Mv-upo"/>
@@ -145,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T3i-tD-UwW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-868.11594202898561" y="52.901785714285715"/>
+            <point key="canvasLocation" x="-611.59420289855075" y="-45.535714285714285"/>
         </scene>
     </scenes>
     <resources>
