@@ -129,7 +129,6 @@ class VideoViewController: UIViewController {
             
             // imageViewの横幅の動き 150(最小値)
             let originalWidth = self.view.frame.width
-//            let minimumImageViewTrailingConstant = originalWidth - (150 + 12)
             let constant = originalWidth - move.y
             
             if minimumImageViewTrailingConstant < -constant {
@@ -162,7 +161,6 @@ class VideoViewController: UIViewController {
         videoImageViewTrailingConstraint.constant = minimumImageViewTrailingConstant
         videoImageViewHeightConstraint.constant = 70
         
-//        backView.transform = CGAffineTransform(translationX: 0, y: videoImageMaxY)
         videoImageBackView.transform = CGAffineTransform(translationX: 0, y: videoImageMaxY)
         describeView.alpha = 0
         backView.alpha = 0
@@ -171,12 +169,23 @@ class VideoViewController: UIViewController {
     }
     
     private func backToIdentityAllViews(imageView: UIImageView) {
-        // 手を離した時の処理
+        // 手を離した時の処理<
+        // imageViewの設定
         imageView.transform = .identity
-        self.videoImageViewHeightConstraint.constant = 280
-        self.videoImageViewLeadingConstraint.constant = 0
-        self.videoImageViewTrailingConstraint.constant = 0
+        videoImageViewHeightConstraint.constant = 280
+        videoImageViewLeadingConstraint.constant = 0
+        videoImageViewTrailingConstraint.constant = 0
+        // backViewの設定
+        backViewTrailingConstraint.constant = 0
+        backViewBottomConstoraint.constant = 0
+        backViewTopConstraint.constant = 0
+        backView.alpha = 1
+        // describeViewの設定
+        describeViewTopConstraint.constant = 0
+        describeView.alpha = 1
         
+        baseBackGroundView.alpha = 1
+        // 手を離した時の処理>
         self.view.layoutIfNeeded()
     }
 }
