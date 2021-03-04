@@ -147,9 +147,20 @@ class VideoViewController: UIViewController {
                     self.backToIdentityAllViews(imageView: imageView as! UIImageView)
                 })
             } else {
-                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: []) {
+                UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: []) {
                     
                     self.moveToBottom(imageView: imageView as! UIImageView)
+                } completion: { _ in
+                    // 動きが完了したら消える<
+                    self.videoImageView.isHidden = true
+                    self.videoImageBackView.isHidden = true
+                    
+                    let image = self.videoImageView.image
+                    let userInfo: [String: UIImage?] = ["image": image]
+                    NotificationCenter.default.post(name: .init("thumbnailImage"), object: nil, userInfo: userInfo as [AnyHashable : Any])
+                    
+                    self.dismiss(animated: false, completion: nil)
+                    // 動きが完了したら消える>
                 }
             }
         }
@@ -164,6 +175,7 @@ class VideoViewController: UIViewController {
         videoImageBackView.transform = CGAffineTransform(translationX: 0, y: videoImageMaxY)
         describeView.alpha = 0
         backView.alpha = 0
+        baseBackGroundView.alpha = 0
         
         self.view.layoutIfNeeded()
     }

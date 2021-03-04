@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Video List View Controller-->
+        <!--Item-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="VideoListViewController" customModule="YoutubeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xBu-68-SDH">
-                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="709"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Koh-zQ-x5F">
                                     <size key="itemSize" width="128" height="128"/>
@@ -37,6 +37,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1od-R8-n8w">
+                                <rect key="frame" x="12" y="723" width="390" height="70"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Auu-LK-mmd">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="70"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="6mZ-t8-5Xg"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Auu-LK-mmd" secondAttribute="bottom" id="3ef-kf-o9h"/>
+                                    <constraint firstItem="Auu-LK-mmd" firstAttribute="leading" secondItem="1od-R8-n8w" secondAttribute="leading" id="GGQ-ds-Rc0"/>
+                                    <constraint firstItem="Auu-LK-mmd" firstAttribute="top" secondItem="1od-R8-n8w" secondAttribute="top" id="kJY-8x-LZP"/>
+                                    <constraint firstAttribute="height" constant="70" id="zK6-t3-rTv"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uv-Rg-v7j">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
@@ -99,13 +118,20 @@
                             <constraint firstItem="7uv-Rg-v7j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6yo-0w-RIo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xBu-68-SDH" secondAttribute="trailing" id="7fh-5Z-FY0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xBu-68-SDH" secondAttribute="bottom" id="CFE-TN-xO9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1od-R8-n8w" secondAttribute="bottom" constant="20" id="H3v-pG-te2"/>
+                            <constraint firstItem="1od-R8-n8w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="Hap-xV-ZTw"/>
                             <constraint firstItem="xBu-68-SDH" firstAttribute="top" secondItem="7uv-Rg-v7j" secondAttribute="bottom" id="LGK-j5-2lz"/>
                             <constraint firstItem="xBu-68-SDH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UOJ-oi-2DV"/>
                             <constraint firstItem="7uv-Rg-v7j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Z79-Pi-Dba"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1od-R8-n8w" secondAttribute="trailing" constant="12" id="phL-zc-0hn"/>
                             <constraint firstItem="7uv-Rg-v7j" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="swb-C9-u19"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="kbW-43-4j0"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bottomVideoImageView" destination="Auu-LK-mmd" id="M0k-Yh-XiY"/>
+                        <outlet property="bottomVideoView" destination="1od-R8-n8w" id="gpl-Uy-uEO"/>
                         <outlet property="headerHeightConstraint" destination="ram-Ug-1O5" id="a38-WZ-gIm"/>
                         <outlet property="headerTopConstraint" destination="6yo-0w-RIo" id="Z6X-hs-txR"/>
                         <outlet property="headerView" destination="7uv-Rg-v7j" id="lcf-yD-fhF"/>
@@ -125,6 +151,12 @@
         <image name="検索用の虫眼鏡アイコン素材 その3" width="128" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

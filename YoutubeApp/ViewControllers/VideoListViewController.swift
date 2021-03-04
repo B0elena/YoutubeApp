@@ -16,6 +16,9 @@ class VideoListViewController: UIViewController {
     @IBOutlet weak var headerHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var bottomVideoImageView: UIImageView!
+    @IBOutlet weak var bottomVideoView: UIView!
+    
     private var prevContentOffset: CGPoint = .init(x: 0, y: 0)
     private let headerMoveHeight: CGFloat = 5
     
@@ -28,6 +31,16 @@ class VideoListViewController: UIViewController {
         
         setupViews()
         fetchYoutubeSerachInfo()
+        NotificationCenter.default.addObserver(self, selector: #selector(showThumbnailImage), name: .init("thumbnailImage"), object: nil)
+    }
+    
+    @objc private func showThumbnailImage(notification: NSNotification) {
+        guard let userInfo = notification.userInfo as? [String: UIImage] else { return }
+        let image = userInfo["image"]
+        
+        bottomVideoView.isHidden = false
+        bottomVideoImageView.image = image
+        
     }
     
     private func setupViews() {
@@ -36,6 +49,8 @@ class VideoListViewController: UIViewController {
         videoListCollectionView.register(UINib(nibName: "VideoListCell", bundle: nil), forCellWithReuseIdentifier: cellId)
         videoListCollectionView.register(AttentionCell.self, forCellWithReuseIdentifier: atentionCellId)
         profileImageView.layer.cornerRadius = 20
+        
+        bottomVideoView.isHidden = true
     }
     
     // 検索リストからのレスポンス<
@@ -147,10 +162,14 @@ extension VideoListViewController: UICollectionViewDelegate, UICollectionViewDat
         //  } else {
         //     videoViewController.selectedItem = videoItems[indexPath.row]
         //   }
-        // 上の条件分岐を短く書く(同じ意味)
-        videoViewController.selectedItem = indexPath.row > 2 ? videoItems[indexPath.row - 1] : videoItems[indexPath.row]
+        // 上の条件分岐を短く書く(elseの中と同じ意味)
+        if videoItems.count == 0 {
+            videoViewController.selectedItem = nil
+        } else {
+            videoViewController.selectedItem = indexPath.row > 2 ? videoItems[indexPath.row - 1] : videoItems[indexPath.row]
+        }
         // VideoViewControllerに情報を渡す>
-        
+        bottomVideoView.isHidden = true
         self.present(videoViewController, animated: true, completion: nil)
     }
     
