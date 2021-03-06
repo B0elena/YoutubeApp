@@ -35,7 +35,8 @@ class VideoListViewController: UIViewController {
     private let cellId = "cellId"
     private let atentionCellId = "atentionCellId"
     private var videoItems = [Item]()
-    
+    private var selectedItem: Item?
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,20 +53,48 @@ class VideoListViewController: UIViewController {
     
     @objc private func tapBottomVideoView() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: []) {
-            
-            let topSafeArea = self.view.safeAreaInsets.top
-            let bottomSafeArea = self.view.safeAreaInsets.bottom
-            
-            self.bottomVideoViewLeading.constant = 0
-            self.bottomVideoViewTrailing.constant = 0
-            self.bottomVideoViewBottom.constant = -bottomSafeArea
-            
-            self.bottomVideoViewHeight.constant = self.view.frame.height - topSafeArea
-            
-            self.view.layoutIfNeeded()
+            self.bottomVideoViewExpendanimation()
         } completion: { _ in
+            let videoViewController = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(identifier: "VideoViewController") as VideoViewController
+            videoViewController.selectedItem = self.selectedItem
             
+            self.present(videoViewController, animated: false) {
+                self.bottomVideoViewBackToIdentity()
+            }
         }
+    }
+    
+    private func bottomVideoViewExpendanimation() {
+        let topSafeArea = self.view.safeAreaInsets.top
+        let bottomSafeArea = self.view.safeAreaInsets.bottom
+        
+        // bottomVideoView
+        bottomVideoViewLeading.constant = 0
+        bottomVideoViewTrailing.constant = 0
+        bottomVideoViewBottom.constant = -bottomSafeArea
+        bottomVideoViewHeight.constant = self.view.frame.height - topSafeArea
+        
+        // bottomVideoImageView
+        bottomVideoImageWidth.constant = view.frame.width
+        bottomVideoImageHeight.constant = 280
+        
+        self.tabBarController?.tabBar.isHidden = true
+        self.view.layoutIfNeeded()
+    }
+    
+    private func bottomVideoViewBackToIdentity() {
+        // bottomVideoView
+        bottomVideoViewLeading.constant = 12
+        bottomVideoViewTrailing.constant = 12
+        bottomVideoViewBottom.constant = 20
+        bottomVideoViewHeight.constant = 70
+        
+        // bottomVideoImageView
+        bottomVideoImageWidth.constant = 150
+        bottomVideoImageHeight.constant = 70
+        
+        bottomVideoView.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     @objc private func showThumbnailImage(notification: NSNotification) {
@@ -84,6 +113,7 @@ class VideoListViewController: UIViewController {
         videoListCollectionView.register(AttentionCell.self, forCellWithReuseIdentifier: atentionCellId)
         profileImageView.layer.cornerRadius = 20
         
+        view.bringSubviewToFront(bottomVideoView)
         bottomVideoView.isHidden = true
     }
     
@@ -199,8 +229,11 @@ extension VideoListViewController: UICollectionViewDelegate, UICollectionViewDat
         // 上の条件分岐を短く書く(elseの中と同じ意味)
         if videoItems.count == 0 {
             videoViewController.selectedItem = nil
+            self.selectedItem = nil
         } else {
-            videoViewController.selectedItem = indexPath.row > 2 ? videoItems[indexPath.row - 1] : videoItems[indexPath.row]
+            let item = indexPath.row > 2 ? videoItems[indexPath.row - 1] : videoItems[indexPath.row]
+            videoViewController.selectedItem = item
+            self.selectedItem = item
         }
         // VideoViewControllerに情報を渡す>
         bottomVideoView.isHidden = true
