@@ -35,10 +35,8 @@ class VideoListViewController: UIViewController {
     @IBOutlet weak var bottomVideoViewLeading: NSLayoutConstraint!
     @IBOutlet weak var bottomVideoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var bottomVideoViewBottom: NSLayoutConstraint!
-    
     @IBOutlet weak var bottomVideoImageWidth: NSLayoutConstraint!
     @IBOutlet weak var bottomVideoImageHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var bottomSubscribeView: UIView!
     @IBOutlet weak var bottomCloseButton: UIButton!
     @IBOutlet weak var bottomVideoTitleLabel: UILabel!
@@ -49,7 +47,7 @@ class VideoListViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
-        fetchYoutubeSerachInfo()
+//        fetchYoutubeSerachInfo()
         setupGestureRecognizer()
         NotificationCenter.default.addObserver(self, selector: #selector(showThumbnailImage), name: .init("thumbnailImage"), object: nil)
     }
@@ -88,7 +86,7 @@ class VideoListViewController: UIViewController {
     }
     
     @objc private func tappedSerchButton() {
-        let serchController = SerchViewController()
+        let serchController = SearchViewController()
         let nav = UINavigationController(rootViewController: serchController)
         self.present(nav, animated: true, completion: nil)
     }
