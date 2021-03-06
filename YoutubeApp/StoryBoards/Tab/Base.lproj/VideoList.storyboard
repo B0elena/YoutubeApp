@@ -45,12 +45,12 @@
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="6mZ-t8-5Xg"/>
+                                            <constraint firstAttribute="height" constant="70" id="nRd-fS-UZI"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Auu-LK-mmd" secondAttribute="bottom" id="3ef-kf-o9h"/>
                                     <constraint firstItem="Auu-LK-mmd" firstAttribute="leading" secondItem="1od-R8-n8w" secondAttribute="leading" id="GGQ-ds-Rc0"/>
                                     <constraint firstItem="Auu-LK-mmd" firstAttribute="top" secondItem="1od-R8-n8w" secondAttribute="top" id="kJY-8x-LZP"/>
                                     <constraint firstAttribute="height" constant="70" id="zK6-t3-rTv"/>
@@ -130,8 +130,14 @@
                     <tabBarItem key="tabBarItem" title="Item" id="kbW-43-4j0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bottomVideoImageHeight" destination="nRd-fS-UZI" id="2aj-1G-5ye"/>
                         <outlet property="bottomVideoImageView" destination="Auu-LK-mmd" id="M0k-Yh-XiY"/>
+                        <outlet property="bottomVideoImageWidth" destination="6mZ-t8-5Xg" id="3x4-6f-L8F"/>
                         <outlet property="bottomVideoView" destination="1od-R8-n8w" id="gpl-Uy-uEO"/>
+                        <outlet property="bottomVideoViewBottom" destination="H3v-pG-te2" id="GwY-s4-xIJ"/>
+                        <outlet property="bottomVideoViewHeight" destination="zK6-t3-rTv" id="6qd-2K-WNd"/>
+                        <outlet property="bottomVideoViewLeading" destination="Hap-xV-ZTw" id="q6m-qX-iDY"/>
+                        <outlet property="bottomVideoViewTrailing" destination="phL-zc-0hn" id="hyC-3e-WVC"/>
                         <outlet property="headerHeightConstraint" destination="ram-Ug-1O5" id="a38-WZ-gIm"/>
                         <outlet property="headerTopConstraint" destination="6yo-0w-RIo" id="Z6X-hs-txR"/>
                         <outlet property="headerView" destination="7uv-Rg-v7j" id="lcf-yD-fhF"/>

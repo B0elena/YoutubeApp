@@ -66,11 +66,11 @@ class VideoViewController: UIViewController {
         imageViewCenterY = videoImageView.center.y
         
         channelImageView.layer.cornerRadius = 22.5
-        //サムネイルの読み込みをして反映<
+        // サムネイルの読み込みをして反映<
         if let url = URL(string: selectedItem?.snippet.thumbnails.medium.url ?? "") {
             Nuke.loadImage(with: url, into: videoImageView)
         }
-        //サムネイルの読み込みをして反映>
+        // サムネイルの読み込みをして反映>
         //  チャンネルイメージの読み込みをして反映<
         if let channelUrl = URL(string: selectedItem?.channel?.items[0].snippet.thumbnails.medium.url ?? "") {
             Nuke.loadImage(with: channelUrl, into: channelImageView)
@@ -115,7 +115,6 @@ class VideoViewController: UIViewController {
 
         }
     }
-    
     
     // MARK: -imageViewのpanGestureのstateが[.changed]する動き
     private func adjustPaddingChange(move: CGPoint) {
@@ -162,6 +161,7 @@ class VideoViewController: UIViewController {
             videoImageViewTrailingConstraint.constant = -constant
         }
     }
+    
     // MARK: -imageViewのpanGestureのstateが[.ended]する動き
     private func imageViewEndedAnimation(move: CGPoint, imageView: UIImageView) {
         if move.y < self.view.frame.height / 3 {

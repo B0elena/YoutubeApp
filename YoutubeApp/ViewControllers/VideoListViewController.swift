@@ -17,7 +17,17 @@ class VideoListViewController: UIViewController {
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var bottomVideoImageView: UIImageView!
+    
     @IBOutlet weak var bottomVideoView: UIView!
+    
+    // bottomImageViewの制約
+    @IBOutlet weak var bottomVideoViewTrailing: NSLayoutConstraint!
+    @IBOutlet weak var bottomVideoViewLeading: NSLayoutConstraint!
+    @IBOutlet weak var bottomVideoViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var bottomVideoViewBottom: NSLayoutConstraint!
+    
+    @IBOutlet weak var bottomVideoImageWidth: NSLayoutConstraint!
+    @IBOutlet weak var bottomVideoImageHeight: NSLayoutConstraint!
     
     private var prevContentOffset: CGPoint = .init(x: 0, y: 0)
     private let headerMoveHeight: CGFloat = 5
@@ -31,7 +41,31 @@ class VideoListViewController: UIViewController {
         
         setupViews()
         fetchYoutubeSerachInfo()
+        setupGestureRecognizer()
         NotificationCenter.default.addObserver(self, selector: #selector(showThumbnailImage), name: .init("thumbnailImage"), object: nil)
+    }
+    
+    private func setupGestureRecognizer() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapBottomVideoView))
+        bottomVideoView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func tapBottomVideoView() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: []) {
+            
+            let topSafeArea = self.view.safeAreaInsets.top
+            let bottomSafeArea = self.view.safeAreaInsets.bottom
+            
+            self.bottomVideoViewLeading.constant = 0
+            self.bottomVideoViewTrailing.constant = 0
+            self.bottomVideoViewBottom.constant = -bottomSafeArea
+            
+            self.bottomVideoViewHeight.constant = self.view.frame.height - topSafeArea
+            
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            
+        }
     }
     
     @objc private func showThumbnailImage(notification: NSNotification) {
