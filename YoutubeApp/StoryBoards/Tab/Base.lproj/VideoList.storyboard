@@ -48,11 +48,56 @@
                                             <constraint firstAttribute="height" constant="70" id="nRd-fS-UZI"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBN-KC-jhd">
+                                        <rect key="frame" x="150" y="0.0" width="240" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TL9-8a-ghk">
+                                                <rect key="frame" x="194" y="0.0" width="46" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="46" id="zLc-EC-Ad0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                                <state key="normal" title="×">
+                                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rgO-Ri-KeH">
+                                                <rect key="frame" x="5" y="5" width="189" height="60"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ビデオのタイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0c-en-733">
+                                                        <rect key="frame" x="0.0" y="0.0" width="189" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ビデオの説明" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1h-nY-NRc">
+                                                        <rect key="frame" x="0.0" y="30" width="189" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="TL9-8a-ghk" firstAttribute="top" secondItem="dBN-KC-jhd" secondAttribute="top" id="0Ca-SC-Rlj"/>
+                                            <constraint firstItem="rgO-Ri-KeH" firstAttribute="leading" secondItem="dBN-KC-jhd" secondAttribute="leading" constant="5" id="BwI-ct-VsB"/>
+                                            <constraint firstItem="TL9-8a-ghk" firstAttribute="leading" secondItem="rgO-Ri-KeH" secondAttribute="trailing" id="D2S-FH-HFN"/>
+                                            <constraint firstAttribute="bottom" secondItem="rgO-Ri-KeH" secondAttribute="bottom" constant="5" id="QB5-Bf-E7f"/>
+                                            <constraint firstItem="rgO-Ri-KeH" firstAttribute="top" secondItem="dBN-KC-jhd" secondAttribute="top" constant="5" id="lVd-Fg-9hx"/>
+                                            <constraint firstAttribute="trailing" secondItem="TL9-8a-ghk" secondAttribute="trailing" id="nGx-ki-FxH"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Auu-LK-mmd" firstAttribute="leading" secondItem="1od-R8-n8w" secondAttribute="leading" id="GGQ-ds-Rc0"/>
+                                    <constraint firstItem="dBN-KC-jhd" firstAttribute="top" secondItem="1od-R8-n8w" secondAttribute="top" id="KSw-Pc-Edl"/>
+                                    <constraint firstItem="dBN-KC-jhd" firstAttribute="leading" secondItem="Auu-LK-mmd" secondAttribute="trailing" id="jaK-Ij-r3i"/>
                                     <constraint firstItem="Auu-LK-mmd" firstAttribute="top" secondItem="1od-R8-n8w" secondAttribute="top" id="kJY-8x-LZP"/>
+                                    <constraint firstAttribute="trailing" secondItem="dBN-KC-jhd" secondAttribute="trailing" id="pUI-9G-ZrH"/>
+                                    <constraint firstAttribute="bottom" secondItem="dBN-KC-jhd" secondAttribute="bottom" id="uXS-uD-207"/>
                                     <constraint firstAttribute="height" constant="70" id="zK6-t3-rTv"/>
                                 </constraints>
                             </view>
@@ -130,6 +175,8 @@
                     <tabBarItem key="tabBarItem" title="Item" id="kbW-43-4j0"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bottomCloseButton" destination="TL9-8a-ghk" id="JnJ-DK-bbb"/>
+                        <outlet property="bottomSubscribeView" destination="dBN-KC-jhd" id="Djy-Z9-DxI"/>
                         <outlet property="bottomVideoImageHeight" destination="nRd-fS-UZI" id="2aj-1G-5ye"/>
                         <outlet property="bottomVideoImageView" destination="Auu-LK-mmd" id="M0k-Yh-XiY"/>
                         <outlet property="bottomVideoImageWidth" destination="6mZ-t8-5Xg" id="3x4-6f-L8F"/>

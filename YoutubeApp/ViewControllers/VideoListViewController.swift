@@ -30,6 +30,10 @@ class VideoListViewController: UIViewController {
     
     @IBOutlet weak var bottomVideoView: UIView!
     
+    @IBOutlet weak var bottomSubscribeView: UIView!
+    
+    @IBOutlet weak var bottomCloseButton: UIButton!
+    
     // bottomImageViewの制約
     @IBOutlet weak var bottomVideoViewTrailing: NSLayoutConstraint!
     @IBOutlet weak var bottomVideoViewLeading: NSLayoutConstraint!
@@ -54,6 +58,7 @@ class VideoListViewController: UIViewController {
         guard let userInfo = notification.userInfo as? [String: UIImage] else { return }
         let image = userInfo["image"]
         
+        bottomSubscribeView.isHidden = false
         bottomVideoView.isHidden = false
         bottomVideoImageView.image = image
         
@@ -246,6 +251,7 @@ extension VideoListViewController {
     
     @objc private func tapBottomVideoView() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: []) {
+            self.bottomSubscribeView.isHidden = true
             self.bottomVideoViewExpendanimation()
         } completion: { _ in
             let videoViewController = UIStoryboard(name: "Video", bundle: nil).instantiateViewController(identifier: "VideoViewController") as VideoViewController
