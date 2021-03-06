@@ -56,16 +56,17 @@ class VideoListViewController: UIViewController {
     
     // MARK: Methods
     @objc private func showThumbnailImage(notification: NSNotification) {
-        guard let userInfo = notification.userInfo as? [String: Any] else { return }
-        let image = userInfo["image"]
-        let videoImageMinY = userInfo["videoImageMinY"] as? CGFloat ?? 0
+
+        guard let userInfo = notification.userInfo as? [String: Any],
+              let image = userInfo["image"] as? UIImage,
+              let videoImageMinY = userInfo["videoImageMinY"] as? CGFloat else { return }
         
         let diffBottomConstant = videoImageMinY - self.bottomVideoView.frame.minY
         
         bottomVideoViewBottom.constant -= diffBottomConstant
         bottomSubscribeView.isHidden = false
         bottomVideoView.isHidden = false
-        bottomVideoImageView.image = image as! UIImage
+        bottomVideoImageView.image = image
         bottomVideoTitleLabel.text = self.selectedItem?.snippet.channelTitle
         bottomVideoDescribeLabel.text = self.selectedItem?.snippet.description
         
@@ -81,6 +82,18 @@ class VideoListViewController: UIViewController {
         
         view.bringSubviewToFront(bottomVideoView)
         bottomVideoView.isHidden = true
+        
+        bottomCloseButton.addTarget(self, action: #selector(tappedBottomCloseButton), for: .touchUpInside)
+    }
+    
+    @objc private func tappedBottomCloseButton() {
+        UIView.animate(withDuration: 0.2) {
+            self.bottomVideoViewBottom.constant = -150
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.bottomVideoView.isHidden = true
+            self.selectedItem = nil
+        }
     }
 }
 
