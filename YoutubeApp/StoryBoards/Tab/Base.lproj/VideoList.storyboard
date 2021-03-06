@@ -177,9 +177,11 @@
                     <connections>
                         <outlet property="bottomCloseButton" destination="TL9-8a-ghk" id="JnJ-DK-bbb"/>
                         <outlet property="bottomSubscribeView" destination="dBN-KC-jhd" id="Djy-Z9-DxI"/>
+                        <outlet property="bottomVideoDescribeLabel" destination="Q1h-nY-NRc" id="BnQ-qm-RoS"/>
                         <outlet property="bottomVideoImageHeight" destination="nRd-fS-UZI" id="2aj-1G-5ye"/>
                         <outlet property="bottomVideoImageView" destination="Auu-LK-mmd" id="M0k-Yh-XiY"/>
                         <outlet property="bottomVideoImageWidth" destination="6mZ-t8-5Xg" id="3x4-6f-L8F"/>
+                        <outlet property="bottomVideoTitleLabel" destination="C0c-en-733" id="Xi7-cS-P8p"/>
                         <outlet property="bottomVideoView" destination="1od-R8-n8w" id="gpl-Uy-uEO"/>
                         <outlet property="bottomVideoViewBottom" destination="H3v-pG-te2" id="GwY-s4-xIJ"/>
                         <outlet property="bottomVideoViewHeight" destination="zK6-t3-rTv" id="6qd-2K-WNd"/>

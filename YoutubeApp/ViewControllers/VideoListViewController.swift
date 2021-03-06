@@ -30,10 +30,6 @@ class VideoListViewController: UIViewController {
     
     @IBOutlet weak var bottomVideoView: UIView!
     
-    @IBOutlet weak var bottomSubscribeView: UIView!
-    
-    @IBOutlet weak var bottomCloseButton: UIButton!
-    
     // bottomImageViewの制約
     @IBOutlet weak var bottomVideoViewTrailing: NSLayoutConstraint!
     @IBOutlet weak var bottomVideoViewLeading: NSLayoutConstraint!
@@ -42,7 +38,12 @@ class VideoListViewController: UIViewController {
     
     @IBOutlet weak var bottomVideoImageWidth: NSLayoutConstraint!
     @IBOutlet weak var bottomVideoImageHeight: NSLayoutConstraint!
- 
+    
+    @IBOutlet weak var bottomSubscribeView: UIView!
+    @IBOutlet weak var bottomCloseButton: UIButton!
+    @IBOutlet weak var bottomVideoTitleLabel: UILabel!
+    @IBOutlet weak var bottomVideoDescribeLabel: UILabel!
+    
     // MARK: LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,8 @@ class VideoListViewController: UIViewController {
         bottomSubscribeView.isHidden = false
         bottomVideoView.isHidden = false
         bottomVideoImageView.image = image
+        bottomVideoTitleLabel.text = self.selectedItem?.snippet.channelTitle
+        bottomVideoDescribeLabel.text = self.selectedItem?.snippet.description
         
     }
     
