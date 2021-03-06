@@ -47,8 +47,25 @@ class VideoListViewController: UIViewController {
     }
     
     private func setupGestureRecognizer() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panBottomVideoView))
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapBottomVideoView))
         bottomVideoView.addGestureRecognizer(tapGesture)
+        bottomVideoView.addGestureRecognizer(panGesture)
+    }
+    
+    @objc private func panBottomVideoView(sender: UIPanGestureRecognizer) {
+        let move = sender.translation(in: view)
+        
+        guard  let imageView = sender.view else { return }
+        
+        if sender.state == .changed {
+            imageView.transform = CGAffineTransform(translationX: 0, y: move.y)
+        } else if sender.state == .ended {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options:[]) {
+                imageView.transform = .identity
+                self.view.layoutIfNeeded()
+            }
+        }
     }
     
     @objc private func tapBottomVideoView() {
