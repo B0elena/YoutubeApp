@@ -56,12 +56,16 @@ class VideoListViewController: UIViewController {
     
     // MARK: Methods
     @objc private func showThumbnailImage(notification: NSNotification) {
-        guard let userInfo = notification.userInfo as? [String: UIImage] else { return }
+        guard let userInfo = notification.userInfo as? [String: Any] else { return }
         let image = userInfo["image"]
+        let videoImageMinY = userInfo["videoImageMinY"] as? CGFloat ?? 0
         
+        let diffBottomConstant = videoImageMinY - self.bottomVideoView.frame.minY
+        
+        bottomVideoViewBottom.constant -= diffBottomConstant
         bottomSubscribeView.isHidden = false
         bottomVideoView.isHidden = false
-        bottomVideoImageView.image = image
+        bottomVideoImageView.image = image as! UIImage
         bottomVideoTitleLabel.text = self.selectedItem?.snippet.channelTitle
         bottomVideoDescribeLabel.text = self.selectedItem?.snippet.description
         
