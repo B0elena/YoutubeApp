@@ -191,6 +191,7 @@
                         <outlet property="headerTopConstraint" destination="6yo-0w-RIo" id="Z6X-hs-txR"/>
                         <outlet property="headerView" destination="7uv-Rg-v7j" id="lcf-yD-fhF"/>
                         <outlet property="profileImageView" destination="stv-Aq-8eQ" id="q96-Sy-fxG"/>
+                        <outlet property="serchButton" destination="Wd8-T5-Jxl" id="VGy-0t-TFA"/>
                         <outlet property="videoListCollectionView" destination="xBu-68-SDH" id="9cv-Ti-wcg"/>
                     </connections>
                 </viewController>

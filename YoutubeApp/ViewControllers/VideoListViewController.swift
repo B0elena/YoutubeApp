@@ -27,8 +27,8 @@ class VideoListViewController: UIViewController {
     @IBOutlet weak var headerTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var bottomVideoImageView: UIImageView!
-    
     @IBOutlet weak var bottomVideoView: UIView!
+    @IBOutlet weak var serchButton: UIButton!
     
     // bottomImageViewの制約
     @IBOutlet weak var bottomVideoViewTrailing: NSLayoutConstraint!
@@ -84,6 +84,13 @@ class VideoListViewController: UIViewController {
         bottomVideoView.isHidden = true
         
         bottomCloseButton.addTarget(self, action: #selector(tappedBottomCloseButton), for: .touchUpInside)
+        serchButton.addTarget(self, action: #selector(tappedSerchButton), for: .touchUpInside)
+    }
+    
+    @objc private func tappedSerchButton() {
+        let serchController = SerchViewController()
+        let nav = UINavigationController(rootViewController: serchController)
+        self.present(nav, animated: true, completion: nil)
     }
     
     @objc private func tappedBottomCloseButton() {
