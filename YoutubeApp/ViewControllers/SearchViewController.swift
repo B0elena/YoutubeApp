@@ -47,4 +47,12 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     // キャンセルボタンを押した時のメソッド>
+    
+    // キーボードのsearchを押した時の処理<
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.showsCancelButton = false
+        // API通信を呼ぶ
+    }
+    // キーボードのsearchを押した時の処理>
 }
