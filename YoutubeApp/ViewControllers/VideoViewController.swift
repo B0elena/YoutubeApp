@@ -179,7 +179,7 @@ class VideoViewController: UIViewController {
                     self.videoImageBackView.isHidden = true
                     
                     let image = self.videoImageView.image
-                    let userInfo: [String: Any] = ["image": image, "videoImageMinY": self.videoImageView.frame.minY]
+                    let userInfo: [String: Any] = ["image": image as Any, "videoImageMinY": self.videoImageView.frame.minY]
                     NotificationCenter.default.post(name: .init("thumbnailImage"), object: nil, userInfo: userInfo as [AnyHashable : Any])
                 } completion: { _ in
                     self.dismiss(animated: false, completion: nil)
@@ -208,6 +208,7 @@ class VideoViewController: UIViewController {
         // 手を離した時の処理<
         // imageViewの設定
         imageView.transform = .identity
+        videoImageBackView.transform = .identity
         videoImageViewHeightConstraint.constant = 280
         videoImageViewLeadingConstraint.constant = 0
         videoImageViewTrailingConstraint.constant = 0
