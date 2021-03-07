@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class SearchViewController: UIViewController {
-    
     lazy var searchBar: UISearchBar = {
         let sb = UISearchBar()
         sb.placeholder = "Youtubeを検索"
@@ -34,7 +33,18 @@ class SearchViewController: UIViewController {
 
 // MARK: -UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
+    //サーチを始めた時に呼ばれるメソッド<
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        // searchBarのキャンセルボタン
+        searchBar.showsCancelButton = true
+    }
+    //サーチを始めた時に呼ばれるメソッド>
     
-    
-    
+    // キャンセルボタンを押した時のメソッド<
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        // キーボードを無くす処理
+        searchBar.resignFirstResponder()
+    }
+    // キャンセルボタンを押した時のメソッド>
 }
