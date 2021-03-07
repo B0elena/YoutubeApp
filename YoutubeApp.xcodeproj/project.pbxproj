@@ -252,8 +252,8 @@
 		F3EDC95F25E9EB770041FEC8 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */,
 				F3844FA125EE8487008C23FF /* AttentionCollectionViewCell.xib */,
+				F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -279,9 +279,9 @@
 			isa = PBXGroup;
 			children = (
 				F3EDC9AF25EAD7FF0041FEC8 /* BaseTabBarController.swift */,
+				F398245525F3940F00849F41 /* SearchViewController.swift */,
 				F3EDC92725E9B6510041FEC8 /* VideoListViewController.swift */,
 				F344E34825EF3E7900AA51D9 /* VideoViewController.swift */,
-				F398245525F3940F00849F41 /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

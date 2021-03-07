@@ -35,10 +35,8 @@ class VideoListViewController: UIViewController {
     @IBOutlet weak var bottomVideoViewLeading: NSLayoutConstraint!
     @IBOutlet weak var bottomVideoViewHeight: NSLayoutConstraint!
     @IBOutlet weak var bottomVideoViewBottom: NSLayoutConstraint!
-    
     @IBOutlet weak var bottomVideoImageWidth: NSLayoutConstraint!
     @IBOutlet weak var bottomVideoImageHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var bottomSubscribeView: UIView!
     @IBOutlet weak var bottomCloseButton: UIButton!
     @IBOutlet weak var bottomVideoTitleLabel: UILabel!
