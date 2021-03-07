@@ -49,7 +49,7 @@ class VideoListViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
-        fetchYoutubeSerachInfo()
+//        fetchYoutubeSerachInfo()
         setupGestureRecognizer()
         NotificationCenter.default.addObserver(self, selector: #selector(showThumbnailImage), name: .init("thumbnailImage"), object: nil)
     }
@@ -88,7 +88,7 @@ class VideoListViewController: UIViewController {
     }
     
     @objc private func tappedSerchButton() {
-        let serchController = SerchViewController()
+        let serchController = SearchViewController()
         let nav = UINavigationController(rootViewController: serchController)
         self.present(nav, animated: true, completion: nil)
     }
