@@ -9,11 +9,24 @@ import Foundation
 import UIKit
 
 class SearchViewController: UIViewController {
+    
+    private let videoCellId = "videoCellId"
+    
     lazy var searchBar: UISearchBar = {
         let sb = UISearchBar()
         sb.placeholder = "Youtubeを検索"
         sb.delegate = self
         return sb
+    }()
+    
+    lazy var videoCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        return collectionView
     }()
     
     
@@ -28,6 +41,10 @@ class SearchViewController: UIViewController {
         
         navigationItem.titleView = searchBar
         navigationItem.titleView?.frame = searchBar.frame
+        
+        videoCollectionView.frame = self.view.frame
+        self.view.addSubview(videoCollectionView)
+        videoCollectionView.register(UINib(nibName: "SearchListCell", bundle: nil), forCellWithReuseIdentifier: videoCellId)
     }
 }
 
@@ -55,4 +72,18 @@ extension SearchViewController: UISearchBarDelegate {
         // API通信を呼ぶ
     }
     // キーボードのsearchを押した時の処理>
+}
+
+// MARK: -UICollectionViewDelegate, UICollectionViewDataSource
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = videoCollectionView.dequeueReusableCell(withReuseIdentifier: videoCellId, for: indexPath)
+        cell.backgroundColor = .green
+        return cell
+    }
 }
