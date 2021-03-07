@@ -16,8 +16,6 @@
 		F31159F525EBCA1300D0EE55 /* Inbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31159F425EBCA1300D0EE55 /* Inbox.storyboard */; };
 		F31159FA25EBCA4000D0EE55 /* Library.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31159F925EBCA4000D0EE55 /* Library.storyboard */; };
 		F3115A0825EE2BE000D0EE55 /* AttentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3115A0725EE2BE000D0EE55 /* AttentionCell.swift */; };
-		F314833625F4925300F43212 /* SearchListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F314833525F4925300F43212 /* SearchListCell.xib */; };
-		F314833B25F492E400F43212 /* SearchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F314833A25F492E400F43212 /* SearchListCell.swift */; };
 		F344E34925EF3E7900AA51D9 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F344E34825EF3E7900AA51D9 /* VideoViewController.swift */; };
 		F344E34F25EF3F1600AA51D9 /* Video.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F344E34E25EF3F1600AA51D9 /* Video.storyboard */; };
 		F3844F9D25EE840F008C23FF /* AttentionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3844F9C25EE840F008C23FF /* AttentionCollectionViewCell.swift */; };
@@ -73,8 +71,6 @@
 		F31159F425EBCA1300D0EE55 /* Inbox.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Inbox.storyboard; sourceTree = "<group>"; };
 		F31159F925EBCA4000D0EE55 /* Library.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Library.storyboard; sourceTree = "<group>"; };
 		F3115A0725EE2BE000D0EE55 /* AttentionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionCell.swift; sourceTree = "<group>"; };
-		F314833525F4925300F43212 /* SearchListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchListCell.xib; sourceTree = "<group>"; };
-		F314833A25F492E400F43212 /* SearchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCell.swift; sourceTree = "<group>"; };
 		F344E34825EF3E7900AA51D9 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		F344E34E25EF3F1600AA51D9 /* Video.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Video.storyboard; sourceTree = "<group>"; };
 		F3844F9C25EE840F008C23FF /* AttentionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -249,7 +245,6 @@
 				F3EDC95725E9EA650041FEC8 /* VideoListCell.swift */,
 				F3115A0725EE2BE000D0EE55 /* AttentionCell.swift */,
 				F3844F9C25EE840F008C23FF /* AttentionCollectionViewCell.swift */,
-				F314833A25F492E400F43212 /* SearchListCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -259,7 +254,6 @@
 			children = (
 				F3EDC96825E9EC000041FEC8 /* VideoListCell.xib */,
 				F3844FA125EE8487008C23FF /* AttentionCollectionViewCell.xib */,
-				F314833525F4925300F43212 /* SearchListCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -409,7 +403,6 @@
 				F344E34F25EF3F1600AA51D9 /* Video.storyboard in Resources */,
 				F31159EB25EBC99100D0EE55 /* Search.storyboard in Resources */,
 				F31159F025EBC9D200D0EE55 /* Channel.storyboard in Resources */,
-				F314833625F4925300F43212 /* SearchListCell.xib in Resources */,
 				F3EDC92B25E9B6510041FEC8 /* VideoList.storyboard in Resources */,
 				F31159F525EBCA1300D0EE55 /* Inbox.storyboard in Resources */,
 			);
@@ -544,7 +537,6 @@
 				F344E34925EF3E7900AA51D9 /* VideoViewController.swift in Sources */,
 				F3844F9D25EE840F008C23FF /* AttentionCollectionViewCell.swift in Sources */,
 				F3EDC98F25EA39D70041FEC8 /* API.swift in Sources */,
-				F314833B25F492E400F43212 /* SearchListCell.swift in Sources */,
 				F3EDC98925EA21EA0041FEC8 /* Channel.swift in Sources */,
 				F398245625F3940F00849F41 /* SearchViewController.swift in Sources */,
 				F3115A0825EE2BE000D0EE55 /* AttentionCell.swift in Sources */,
